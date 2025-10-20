@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS variables and base styles */
+:root {
+  --radius: 1rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-gray-900 antialiased;
+}
+
+.dark body {
+  @apply bg-neutral-950 text-neutral-100;
+}
+
+/* Simple container helper */
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}

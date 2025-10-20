@@ -1,0 +1,8 @@
+{
+  "name": "Mile High Interface",
+  "short_name": "MHI",
+  "icons": [],
+  "theme_color": "#111827",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
