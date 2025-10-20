@@ -6,8 +6,13 @@ export function generateStaticParams() {
   return caseStudies.map(cs => ({ slug: cs.slug }));
 }
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const cs = caseStudies.find(c => c.slug === params.slug);
+export default async function CaseStudyPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params;
+  const cs = caseStudies.find(c => c.slug === slug);
   if (!cs) return notFound();
   return (
     <article className="prose max-w-none">
