@@ -1,9 +1,22 @@
 import type { Metadata } from 'next';
+import { Inter, Fira_Code } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { site } from '@/lib/seo';
 import { Plausible } from '@/lib/analytics';
 import '@/styles/globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -24,11 +37,11 @@ export const metadata: Metadata = {
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
+      <body className="font-sans">
         <Plausible />
         <Header />
-        <main className="container py-10">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
