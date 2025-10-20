@@ -23,32 +23,28 @@ const services = [
     title: 'Product & UI Engineering',
     description: 'Full-stack development with React, Next.js, TypeScript, and modern tooling.',
     features: ['Component Libraries', 'Performance Optimization', 'Accessibility Standards', 'Testing & CI/CD'],
-    color: 'from-cyber-blue to-blue-600',
-    gradient: 'from-cyber-blue/10 to-blue-600/10'
+    color: 'from-cyber-blue to-blue-600'
   },
   {
     icon: BarChart3,
     title: 'Data Visualization',
     description: 'Interactive dashboards and story-driven visualizations that make data compelling.',
     features: ['D3.js Implementations', 'Interactive Charts', 'Real-time Dashboards', 'Custom Visualizations'],
-    color: 'from-cyber-purple to-purple-600',
-    gradient: 'from-cyber-purple/10 to-purple-600/10'
+    color: 'from-cyber-purple to-purple-600'
   },
   {
     icon: Globe,
     title: 'Business Website Development',
     description: 'Professional websites that establish credibility and drive customer engagement for your business.',
     features: ['Responsive Design', 'SEO Optimization', 'Content Management', 'Analytics Integration'],
-    color: 'from-cyber-green to-green-600',
-    gradient: 'from-cyber-green/10 to-green-600/10'
+    color: 'from-cyber-green to-green-600'
   },
   {
     icon: Zap,
     title: 'MVP Development & Validation',
     description: 'Rapid development of minimum viable products to test your business ideas and validate market demand.',
     features: ['Quick Turnaround', 'User Testing', 'Market Validation', 'Scalable Architecture'],
-    color: 'from-cyber-pink to-pink-600',
-    gradient: 'from-cyber-pink/10 to-pink-600/10'
+    color: 'from-cyber-pink to-pink-600'
   }
 ];
 
