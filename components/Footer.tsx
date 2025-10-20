@@ -1,12 +1,11 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Heart, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/demaceo', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/milehighinterface', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com/milehighinterface', label: 'Twitter' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/demaceo', label: 'LinkedIn' },
   { icon: Mail, href: 'mailto:hello@milehighinterface.com', label: 'Email' },
 ];
 
