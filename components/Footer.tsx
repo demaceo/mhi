@@ -37,7 +37,7 @@ export function Footer() {
                 <span className="text-xl font-bold text-brand-900">Mile High Interface</span>
               </div>
               <p className="text-brand-600 max-w-md leading-relaxed">
-                Design‑forward software engineering for products that matter. 
+                App & website development for entrepreneurs and startups. 
                 Building accessible, delightful interfaces that make a difference.
               </p>
               <div className="flex items-center gap-2 text-sm text-brand-500">

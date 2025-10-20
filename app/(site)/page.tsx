@@ -20,35 +20,35 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 
 const features = [
   {
-    icon: Code2,
-    title: 'Modern Development',
-    description: 'React, TypeScript, Next.js, and cutting-edge tools for blazing-fast applications.',
+    icon: Rocket,
+    title: 'New App Development',
+    description: 'Turn your mobile app idea into reality with modern, scalable technology and intuitive design.',
     color: 'from-cyber-blue to-blue-600'
   },
   {
-    icon: Palette,
-    title: 'Design Excellence',
-    description: 'Beautiful, accessible interfaces that users love and stakeholders celebrate.',
+    icon: Globe,
+    title: 'Website Creation',
+    description: 'Build professional websites that convert visitors into customers and grow your business.',
     color: 'from-cyber-purple to-purple-600'
   },
   {
-    icon: Brain,
-    title: 'Smart Solutions',
-    description: 'AI-powered insights and data visualization that turns complexity into clarity.',
+    icon: Zap,
+    title: 'App Enhancement',
+    description: 'Improve existing apps with new features, better performance, and enhanced user experience.',
     color: 'from-cyber-pink to-pink-600'
   },
   {
-    icon: Shield,
-    title: 'Secure & Scalable',
-    description: 'Enterprise-grade security with architecture that grows with your business.',
+    icon: Target,
+    title: 'Website Optimization',
+    description: 'Upgrade your current website with modern design, faster loading, and better functionality.',
     color: 'from-cyber-green to-green-600'
   }
 ];
 
 const stats = [
-  { value: '50+', label: 'Projects Delivered' },
+  { value: '50+', label: 'Apps & Websites Built' },
   { value: '99%', label: 'Client Satisfaction' },
-  { value: '24/7', label: 'Support Available' },
+  { value: '48hr', label: 'Response Time' },
   { value: '5+', label: 'Years Experience' }
 ];
 
@@ -95,17 +95,17 @@ export default function HomePage() {
             <motion.div variants={itemVariants} className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-full px-4 py-2 border border-cyber-blue/20">
                 <Sparkles className="w-4 h-4 text-cyber-blue" />
-                <span className="text-sm font-medium text-brand-700">Design‑Forward Software Engineering</span>
+                <span className="text-sm font-medium text-brand-700">App & Website Development</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-                <span className="block">Interfaces</span>
-                <span className="block text-gradient">That Matter</span>
+                <span className="block">Bring Your</span>
+                <span className="block text-gradient">Ideas to Life</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-brand-600 max-w-3xl mx-auto leading-relaxed">
-                We partner with visionary teams to create fast, accessible, and delightful digital experiences — 
-                from civic tech and data visualization to developer tooling that makes a difference.
+                Transform your mobile app or website vision into reality. Whether you're starting from scratch 
+                or enhancing an existing product, we deliver fast, user-friendly solutions that drive results.
               </p>
             </motion.div>
 
@@ -148,55 +148,47 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 lg:py-32">
-        <div className="container">
-          <motion.div
-            className="text-center space-y-4 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold">
-              <span className="text-brand-900">Why Choose</span>
-              <span className="text-gradient"> Mile High Interface</span>
-            </h2>
-            <p className="text-xl text-brand-600 max-w-3xl mx-auto">
-              We combine technical excellence with design thinking to deliver solutions that don't just work — they inspire.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
+        <section className="py-12 bg-black/50">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <motion.h2 
+                className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card variant="cyber" className="h-full group hover:scale-105 transition-transform duration-300">
-                  <CardHeader>
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-xl font-semibold text-brand-900">
-                      {feature.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base leading-relaxed">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                Ready to Bring Your Idea to Life?
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-gray-300 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                Whether you have a startup concept, business improvement idea, or investment opportunity, 
+                I'll help you create the perfect digital solution to make it a reality.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <Link href="/contact">
+                  <Button 
+                    variant="default" 
+                    size="lg" 
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg"
+                  >
+                    Start Your Project Today
+                  </Button>
+                </Link>
               </motion.div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
+        </section>      {/* Call to Action Section */}
       <section className="py-20 lg:py-32">
         <div className="container">
           <motion.div

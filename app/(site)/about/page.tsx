@@ -91,8 +91,8 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-base sm:text-lg lg:text-xl text-brand-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              We are a design-forward software studio in Colorado, building interfaces that elevate 
-              public-interest tech, climate-conscious tools, and developer experiences that matter.
+              We are an app & website development studio in Colorado, creating digital solutions that help 
+              entrepreneurs, startups, and small businesses bring their ideas to life and grow their ventures.
             </p>
           </motion.div>
         </div>
@@ -114,7 +114,8 @@ export default function AboutPage() {
               </h2>
               <div className="prose prose-base sm:prose-lg text-brand-600 max-w-none">
                 <p>
-                  We believe technology should serve humanity, not the other way around. 
+                  We believe technology should empower entrepreneurs and help businesses thrive, 
+                  creating solutions that drive growth and make meaningful impact. 
                   Every line of code we write and every pixel we place is guided by the 
                   principle that great interfaces can make complex problems accessible 
                   and beautiful.

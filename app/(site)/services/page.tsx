@@ -36,17 +36,17 @@ const services = [
   },
   {
     icon: Globe,
-    title: 'Civic & Public-Interest Tech',
-    description: 'Technology solutions that serve the public good and create positive social impact.',
-    features: ['Open Data APIs', 'Advocacy Tools', 'Privacy-First Architecture', 'Community Platforms'],
+    title: 'Business Website Development',
+    description: 'Professional websites that establish credibility and drive customer engagement for your business.',
+    features: ['Responsive Design', 'SEO Optimization', 'Content Management', 'Analytics Integration'],
     color: 'from-cyber-green to-green-600',
     gradient: 'from-cyber-green/10 to-green-600/10'
   },
   {
     icon: Zap,
-    title: 'Prototyping & Experiments',
-    description: 'Rapid concept validation with interactive prototypes and user experience research.',
-    features: ['Concept Validation', 'UX Research Support', 'Interactive Prototypes', 'Micro-interactions'],
+    title: 'MVP Development & Validation',
+    description: 'Rapid development of minimum viable products to test your business ideas and validate market demand.',
+    features: ['Quick Turnaround', 'User Testing', 'Market Validation', 'Scalable Architecture'],
     color: 'from-cyber-pink to-pink-600',
     gradient: 'from-cyber-pink/10 to-pink-600/10'
   }
@@ -156,8 +156,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="h-full group hover:scale-105 transition-all duration-300 border-0 shadow-lg">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl`} />
-                  <div className="relative p-6 sm:p-8">
+                  <div className="p-6 sm:p-8">
                     <CardHeader className="pb-4 sm:pb-6 px-0">
                       <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
                         <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
