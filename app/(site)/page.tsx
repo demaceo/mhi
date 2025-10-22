@@ -117,12 +117,12 @@ export default function HomePage() {
                 </Link>
               </Button>
               
-              <Button variant="ghost" size="lg">
+              {/* <Button variant="ghost" size="lg">
                 <Link href="/work" className="flex items-center gap-2">
                   View Our Work
                   <Globe className="w-5 h-5" />
                 </Link>
-              </Button>
+              </Button> */}
             </motion.div>
 
             {/* Stats */}

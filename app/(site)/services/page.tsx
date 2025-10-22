@@ -314,11 +314,11 @@ export default function ServicesPage() {
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
-                  <Button variant="ghost" size="lg" className="text-white hover:bg-white/10 w-full sm:w-auto">
+                  {/* <Button variant="ghost" size="lg" className="text-white hover:bg-white/10 w-full sm:w-auto">
                     <Link href="/work">
                       View Our Work
                     </Link>
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </Card>
