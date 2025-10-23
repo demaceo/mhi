@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Heart, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/demaceo', label: 'GitHub' },
@@ -29,10 +30,14 @@ export function Footer() {
               transition={{ duration: 0.5 }}
               className="space-y-4"
             >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-cyber-blue to-cyber-purple rounded-lg flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rounded-sm" />
-                </div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/brand/logo.png"
+                  alt="Mile High Interface Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
                 <span className="text-xl font-bold text-brand-900">Mile High Interface</span>
               </div>
               <p className="text-brand-600 max-w-md leading-relaxed">

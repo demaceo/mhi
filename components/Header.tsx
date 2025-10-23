@@ -50,17 +50,21 @@ export function Header() {
           >
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative">
-                <div className="absolute inset-0 bg-cyber-blue/20 rounded-lg blur group-hover:blur-md transition-all" />
-                <div className="relative bg-gradient-to-br from-cyber-blue to-cyber-purple p-2 rounded-lg">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
+                <Image
+                  src="/brand/logo.png"
+                  alt="Mile High Interface Logo"
+                  width={40}
+                  height={40}
+                  className="w-8 h-8 sm:w-10 sm:h-10 transition-all duration-300 group-hover:scale-110"
+                  priority
+                />
               </div>
               <div className="hidden sm:block">
                 <span className="text-xl font-bold bg-gradient-to-r from-brand-900 to-brand-600 bg-clip-text text-transparent">
                   Mile High Interface
                 </span>
                 <div className="text-xs text-brand-500 font-medium tracking-wider uppercase">
-                  Design • Engineering • Innovation
+                  App & Website Development
                 </div>
               </div>
             </Link>

@@ -30,7 +30,21 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     siteName: site.name,
+    images: [
+      {
+        url: '/brand/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mile High Interface Logo',
+      }
+    ],
     type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: site.name,
+    description: site.description,
+    images: ['/brand/logo.png'],
   },
   robots: { index: true, follow: true }
 };
