@@ -86,6 +86,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-title" content={site.name} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta
+          name="google-site-verification"
+          content="Z3qrf98ZMqdKj4wIU8-DpwkZ6VGQB5me-51EEMThINE"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
