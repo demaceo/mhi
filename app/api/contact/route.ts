@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { gmailService } from '@/lib/gmail';
 import { z } from 'zod';
 
-// Initialize Resend
-const resend = new Resend(process.env['RESEND_API_KEY']);
+// Initialize Gmail service (no initialization needed as it's done in the service)
 
 // Validation schema
 const contactSchema = z.object({
@@ -27,9 +26,9 @@ export async function POST(request: Request) {
 
     const { name, email, message } = validationResult.data;
 
-    // Check if Resend API key is configured
-    if (!process.env['RESEND_API_KEY']) {
-      console.error('RESEND_API_KEY environment variable is not set');
+    // Check if Gmail credentials are configured
+    if (!process.env['GOOGLE_CLIENT_ID'] || !process.env['GOOGLE_CLIENT_SECRET'] || !process.env['GOOGLE_REFRESH_TOKEN'] || !process.env['GOOGLE_EMAIL']) {
+      console.error('Gmail OAuth credentials are not properly configured');
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
@@ -94,18 +93,21 @@ export async function POST(request: Request) {
     `.trim();
 
     // Send email to business
-    const businessEmailResult = await resend.emails.send({
-      from: 'Mile High Interface <hello@milehighinterface.com>',
-      to: process.env['BUSINESS_EMAIL'] || 'hello@milehighinterface.com',
+    const businessEmailResult = await gmailService.sendEmail({
+      to: process.env['BUSINESS_EMAIL'] || process.env['GOOGLE_EMAIL'] || 'hello@milehighinterface.com',
       subject: `New Contact Form Submission from ${name}`,
       html: businessEmailContent,
       replyTo: email,
     });
 
-    if (businessEmailResult.error) {
+    if (!businessEmailResult.success) {
       console.error('Failed to send business email:', businessEmailResult.error);
-      console.error('Resend API Key present:', !!process.env['RESEND_API_KEY']);
-      console.error('Business email:', process.env['BUSINESS_EMAIL']);
+      console.error('Gmail credentials present:', {
+        clientId: !!process.env['GOOGLE_CLIENT_ID'],
+        clientSecret: !!process.env['GOOGLE_CLIENT_SECRET'],
+        refreshToken: !!process.env['GOOGLE_REFRESH_TOKEN'],
+        email: !!process.env['GOOGLE_EMAIL']
+      });
       return NextResponse.json(
         { error: 'Failed to send email', details: businessEmailResult.error },
         { status: 500 }
@@ -171,8 +173,7 @@ export async function POST(request: Request) {
 
     // Send confirmation email (optional - only if we want to send confirmations)
     try {
-      await resend.emails.send({
-        from: 'Mile High Interface <hello@milehighinterface.com>',
+      await gmailService.sendEmail({
         to: email,
         subject: 'Thank you for contacting Mile High Interface',
         html: confirmationEmailContent,
