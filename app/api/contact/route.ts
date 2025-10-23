@@ -19,7 +19,11 @@ export async function POST(request: Request) {
     const validationResult = contactSchema.safeParse(body);
     if (!validationResult.success) {
       return NextResponse.json(
-        { error: 'Invalid form data', details: validationResult.error.errors },
+        { 
+          success: false,
+          error: 'Invalid form data', 
+          details: validationResult.error.errors 
+        },
         { status: 400 }
       );
     }
@@ -30,7 +34,10 @@ export async function POST(request: Request) {
     if (!process.env['GOOGLE_CLIENT_ID'] || !process.env['GOOGLE_CLIENT_SECRET'] || !process.env['GOOGLE_REFRESH_TOKEN'] || !process.env['GOOGLE_EMAIL']) {
       console.error('Gmail OAuth credentials are not properly configured');
       return NextResponse.json(
-        { error: 'Email service not configured' },
+        { 
+          success: false,
+          error: 'Email service not configured' 
+        },
         { status: 500 }
       );
     }
@@ -109,7 +116,11 @@ export async function POST(request: Request) {
         email: !!process.env['GOOGLE_EMAIL']
       });
       return NextResponse.json(
-        { error: 'Failed to send email', details: businessEmailResult.error },
+        { 
+          success: false,
+          error: 'Failed to send email', 
+          details: businessEmailResult.error 
+        },
         { status: 500 }
       );
     }
@@ -194,7 +205,11 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        success: false,
+        error: 'Internal server error',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }
