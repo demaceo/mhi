@@ -80,16 +80,35 @@ export default function ContactPage() {
         body: JSON.stringify(parse.data),
       });
       
-      if (!res.ok) throw new Error('Request failed');
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseError) {
+        console.error('Failed to parse response JSON:', parseError);
+        throw new Error('Invalid server response');
+      }
       
-      setState('sent');
-      (e.currentTarget as HTMLFormElement).reset();
+      console.log('Contact form response:', { status: res.status, data });
       
-      // Reset to idle after 5 seconds
-      setTimeout(() => setState('idle'), 5000);
+      if (!res.ok) {
+        throw new Error(data.error || `Server error: ${res.status}`);
+      }
+      
+      // Check if the backend actually reports success
+      if (data.success) {
+        console.log('Contact form submitted successfully');
+        setState('sent');
+        (e.currentTarget as HTMLFormElement).reset();
+        
+        // Reset to idle after 5 seconds
+        setTimeout(() => setState('idle'), 5000);
+      } else {
+        throw new Error(data.error || 'Email sending failed');
+      }
     } catch (err) {
+      console.error('Contact form error:', err);
       setState('error');
-      setGeneralError('Something went wrong. Please try again later.');
+      setGeneralError(err instanceof Error ? err.message : 'Something went wrong. Please try again later.');
     }
   }
 
