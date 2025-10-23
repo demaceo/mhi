@@ -95,7 +95,7 @@ export async function POST(request: Request) {
 
     // Send email to business
     const businessEmailResult = await resend.emails.send({
-      from: 'Mile High Interface <noreply@milehighinterface.com>',
+      from: 'Mile High Interface <hello@milehighinterface.com>',
       to: process.env['BUSINESS_EMAIL'] || 'hello@milehighinterface.com',
       subject: `New Contact Form Submission from ${name}`,
       html: businessEmailContent,
@@ -104,8 +104,10 @@ export async function POST(request: Request) {
 
     if (businessEmailResult.error) {
       console.error('Failed to send business email:', businessEmailResult.error);
+      console.error('Resend API Key present:', !!process.env['RESEND_API_KEY']);
+      console.error('Business email:', process.env['BUSINESS_EMAIL']);
       return NextResponse.json(
-        { error: 'Failed to send email' },
+        { error: 'Failed to send email', details: businessEmailResult.error },
         { status: 500 }
       );
     }
