@@ -3,7 +3,7 @@ import { Inter, Fira_Code } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { site, generateStructuredData } from '@/lib/seo';
-import { Plausible } from '@/lib/analytics';
+import { Plausible, VercelAnalytics } from '@/lib/analytics';
 import '@/styles/globals.css';
 
 const inter = Inter({
@@ -93,6 +93,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans">
         <Plausible />
+        <VercelAnalytics />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
