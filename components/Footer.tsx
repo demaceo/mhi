@@ -33,7 +33,7 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Image
                   src="/brand/logo.png"
-                  alt="Mile High Interface Logo"
+                  alt="Mile High Interface - Denver Colorado App and Website Development"
                   width={32}
                   height={32}
                   className="w-8 h-8"

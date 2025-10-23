@@ -52,7 +52,7 @@ export function Header() {
               <div className="relative">
                 <Image
                   src="/brand/logo.png"
-                  alt="Mile High Interface Logo"
+                  alt="Mile High Interface - Colorado App and Website Development Company Logo"
                   width={40}
                   height={40}
                   className="w-8 h-8 sm:w-10 sm:h-10 transition-all duration-300 group-hover:scale-110"

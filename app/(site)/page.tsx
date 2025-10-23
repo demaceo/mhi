@@ -79,14 +79,14 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      <section className="relative py-20 lg:py-32 overflow-hidden" role="banner">
         {/* Background Elements */}
         <div className="absolute inset-0 cyber-grid opacity-30" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber-blue/10 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyber-purple/10 rounded-full blur-3xl animate-pulse-slow delay-1000" />
         
         <div className="container relative z-10">
-          <motion.div
+          <motion.header
             className="max-w-4xl mx-auto text-center space-y-8"
             variants={containerVariants}
             initial="hidden"
@@ -143,12 +143,12 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>
+          </motion.header>
         </div>
       </section>
 
       {/* Who Are You Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-b from-brand-50/30 to-transparent">
+      <section className="py-20 lg:py-32 bg-gradient-to-b from-brand-50/30 to-transparent" aria-labelledby="target-audience">
         <div className="container">
           <motion.div
             className="max-w-6xl mx-auto"
@@ -157,13 +157,13 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-center space-y-6 mb-16">
+            <header className="text-center space-y-6 mb-16">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-purple/10 to-cyber-pink/10 rounded-full px-4 py-2 border border-cyber-purple/20">
                 <Users className="w-4 h-4 text-cyber-purple" />
                 <span className="text-sm font-medium text-brand-700">Find Your Match</span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              <h2 id="target-audience" className="text-4xl md:text-5xl lg:text-6xl font-bold">
                 <span className="text-brand-900">Who Are</span>
                 <span className="block text-gradient">You?</span>
               </h2>
@@ -172,7 +172,7 @@ export default function HomePage() {
                 Whether you're just starting out or looking to scale, we work with visionaries 
                 at every stage of their journey.
               </p>
-            </div>
+            </header>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
