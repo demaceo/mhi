@@ -14,7 +14,7 @@ export interface CardProps {
 const cardVariants = {
   default: 'bg-white border border-brand-200 shadow-sm',
   glass: 'glass border border-white/20 backdrop-blur-xl',
-  cyber: 'bg-brand-900/5 border border-mountain-teal/20 shadow-lg hover:shadow-mountain-teal/20',
+  cyber: 'bg-brand-900/5 border border-mountain-teal/20 shadow-lg hover:shadow-xl',
   gradient: 'bg-gradient-to-br from-white to-brand-50 border border-brand-200',
 };
 

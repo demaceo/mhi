@@ -11,11 +11,10 @@ import {
   AlertCircle,
   Sparkles,
   MapPin,
-  Phone,
   Clock
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/Card';
 
 const schema = z.object({
   name: z.string().min(1, 'Name is required'),

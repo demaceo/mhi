@@ -8,42 +8,13 @@ import {
   Rocket, 
   Target, 
   Users, 
-  Code2, 
-  Palette,
   Brain,
   Shield,
   Globe,
   Heart
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
-
-const features = [
-  {
-    icon: Rocket,
-    title: 'New App Development',
-    description: 'Turn your mobile app idea into reality with modern, scalable technology and intuitive design.',
-    color: 'from-mountain-teal to-mountain-blue'
-  },
-  {
-    icon: Globe,
-    title: 'Website Creation',
-    description: 'Build professional websites that convert visitors into customers and grow your business.',
-    color: 'from-mountain-cyan to-mountain-teal'
-  },
-  {
-    icon: Zap,
-    title: 'App Enhancement',
-    description: 'Improve existing apps with new features, better performance, and enhanced user experience.',
-    color: 'from-mountain-emerald to-mountain-green'
-  },
-  {
-    icon: Target,
-    title: 'Website Optimization',
-    description: 'Upgrade your current website with modern design, faster loading, and better functionality.',
-    color: 'from-mountain-green to-mountain-forest'
-  }
-];
+import { Card } from '@/components/ui/Card';
 
 const stats = [
   { value: '50+', label: 'Apps & Websites Built' },
@@ -127,7 +98,7 @@ export default function HomePage() {
 
             {/* Stats */}
             <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12">
-              {stats.map((stat, index) => (
+              {stats.map((stat) => (
                 <motion.div
                   key={stat.label}
                   className="text-center"
@@ -169,7 +140,7 @@ export default function HomePage() {
               </h2>
               
               <p className="text-xl text-brand-600 max-w-3xl mx-auto">
-                Whether you're just starting out or looking to scale, we work with visionaries 
+                  Whether you&apos;re just starting out or looking to scale, we work with visionaries
                 at every stage of their journey.
               </p>
             </header>
@@ -187,7 +158,7 @@ export default function HomePage() {
                 {
                   icon: Rocket,
                   title: 'Startup Founders',
-                  description: 'You\'re ready to disrupt an industry with innovative technology.',
+                  description: 'You&apos;re ready to disrupt an industry with innovative technology.',
                   goals: ['Rapid prototyping', 'Technical co-founder support', 'Product-market fit', 'Growth optimization'],
                   color: 'from-mountain-cyan to-mountain-teal',
                   delay: 0.2
@@ -203,7 +174,7 @@ export default function HomePage() {
                 {
                   icon: Shield,
                   title: 'Investors',
-                  description: 'You\'re backing portfolio companies that need technical execution.',
+                  description: 'You&apos;re backing portfolio companies that need technical execution.',
                   goals: ['Due diligence support', 'Technical roadmaps', 'Portfolio optimization', 'Risk mitigation'],
                   color: 'from-mountain-green to-mountain-forest',
                   delay: 0.6
@@ -224,7 +195,7 @@ export default function HomePage() {
                   color: 'from-purple-500 to-pink-500',
                   delay: 1.0
                 }
-              ].map((client, index) => (
+              ].map((client) => (
                 <motion.div
                   key={client.title}
                   initial={{ opacity: 0, y: 30 }}
@@ -281,7 +252,7 @@ export default function HomePage() {
                       >
                         <Button variant="ghost" size="sm" className="w-full group-hover:bg-gradient-to-r group-hover:from-mountain-teal/10 group-hover:to-mountain-emerald/10 transition-all duration-300">
                           <Link href="/contact" className="flex items-center justify-center gap-2 w-full">
-                            Let's Talk
+                            Let&apos;s Talk
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </Link>
                         </Button>
@@ -316,7 +287,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
               >
                 Whether you have a startup concept, business improvement idea, or investment opportunity, 
-                I'll help you create the perfect digital solution to make it a reality.
+                I&apos;ll help you create the perfect digital solution to make it a reality.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -362,15 +333,15 @@ export default function HomePage() {
                 </h2>
                 
                 <p className="text-xl text-brand-600 max-w-2xl mx-auto">
-                  Let's discuss your vision and create an interface that not only meets your needs 
-                  but exceeds your users' expectations.
+                  Let&apos;s discuss your vision and create an interface that not only meets your needs 
+                  but exceeds your users&apos; expectations.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                   <Button variant="cyber" size="lg">
                     <Link href="/contact" className="flex items-center gap-2">
                       <Heart className="w-5 h-5" />
-                      Let's Work Together
+                      Let&apos;s Work Together
                     </Link>
                   </Button>
                   

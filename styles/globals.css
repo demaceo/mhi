@@ -261,6 +261,10 @@ body::before {
   box-shadow: var(--shadow-mountain);
 }
 
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
 .glow-mountain {
   box-shadow: var(--shadow-glow);
 }

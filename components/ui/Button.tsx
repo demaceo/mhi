@@ -18,7 +18,7 @@ const buttonVariants = {
   secondary: 'bg-brand-100 text-brand-900 hover:bg-brand-200',
   outline: 'border-2 border-brand-300 text-brand-700 hover:bg-brand-50 hover:border-brand-400',
   ghost: 'text-brand-700 hover:bg-brand-100 hover:text-brand-900',
-  gradient: 'bg-gradient-to-r from-mountain-teal to-mountain-emerald text-white shadow-lg hover:shadow-mountain-teal/25',
+  gradient: 'bg-gradient-to-r from-mountain-teal to-mountain-emerald text-white shadow-lg hover:shadow-xl',
   cyber: 'bg-gradient-to-r from-mountain-cyan via-mountain-teal to-mountain-green text-white shadow-lg hover:shadow-glow border border-mountain-teal/30',
 };
 
