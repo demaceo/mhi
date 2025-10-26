@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Fira_Code } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { site, generateStructuredData } from '@/lib/seo';
+import { site, generateStructuredData, generateMetaDescription } from '@/lib/seo';
 import { Plausible, VercelAnalytics } from '@/lib/analytics';
 import '@/styles/globals.css';
 
@@ -21,9 +21,9 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: {
     template: `%s · ${site.name}`,
-    default: `${site.name} — Professional App & Website Development`
+    default: `${site.name} — Startup & Entrepreneur App Development | MVP to Scale`
   },
-  description: site.description,
+  description: generateMetaDescription('home'),
   keywords: site.keywords,
   authors: [{ name: site.author }],
   creator: site.author,
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     canonical: site.url,
   },
   openGraph: {
-    title: `${site.name} — Professional App & Website Development`,
-    description: site.description,
+    title: `${site.name} — Startup & Entrepreneur App Development | MVP to Scale`,
+    description: generateMetaDescription('home'),
     url: site.url,
     siteName: site.name,
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         url: '/brand/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Mile High Interface Logo - Professional App & Website Development',
+        alt: 'Mile High Interface - Expert App Development for Startups, Entrepreneurs & Small Businesses',
       }
     ],
     locale: 'en_US',
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — Professional App & Website Development`,
-    description: site.description,
+    title: `${site.name} — Startup & Entrepreneur App Development | MVP to Scale`,
+    description: generateMetaDescription('home'),
     images: ['/brand/logo.png'],
     creator: '@milehighinterface',
   },
