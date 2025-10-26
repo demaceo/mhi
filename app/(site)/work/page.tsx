@@ -42,8 +42,8 @@ export default function WorkPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-full px-3 sm:px-4 py-2 border border-cyber-blue/20">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-cyber-blue" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-3 sm:px-4 py-2 border border-mountain-teal/20">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-mountain-teal" />
               <span className="text-xs sm:text-sm font-medium text-brand-700">Featured Projects</span>
             </div>
             
@@ -78,12 +78,12 @@ export default function WorkPage() {
               >
                 <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
                   {/* Project Image */}
-                  <div className="relative h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-cyber-blue/10 to-cyber-purple/10 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10 overflow-hidden">
                     <div className="absolute inset-0 cyber-grid opacity-30" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cyber-blue to-cyber-purple rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-mountain-teal to-mountain-emerald rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center">
-                          <div className="w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-cyber-blue to-cyber-purple rounded" />
+                          <div className="w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-mountain-teal to-mountain-emerald rounded" />
                         </div>
                       </div>
                     </div>
@@ -111,7 +111,7 @@ export default function WorkPage() {
                       ))}
                     </div>
                     
-                    <CardTitle className="text-lg sm:text-xl font-bold text-brand-900 group-hover:text-cyber-blue transition-colors duration-300">
+                    <CardTitle className="text-lg sm:text-xl font-bold text-brand-900 group-hover:text-mountain-teal transition-colors duration-300">
                       {study.title}
                     </CardTitle>
                   </CardHeader>
@@ -124,17 +124,17 @@ export default function WorkPage() {
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                       <Link
                         href={`/work/${study.slug}`}
-                        className="inline-flex items-center gap-2 text-cyber-blue hover:text-cyber-purple font-medium transition-colors group/link text-sm sm:text-base"
+                        className="inline-flex items-center gap-2 text-mountain-teal hover:text-mountain-emerald font-medium transition-colors group/link text-sm sm:text-base"
                       >
                         View Case Study
                         <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
                       
                       <div className="flex items-center gap-2">
-                        <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-100 hover:bg-cyber-blue hover:text-white flex items-center justify-center transition-all duration-200">
+                        <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-100 hover:bg-mountain-teal hover:text-white flex items-center justify-center transition-all duration-200">
                           <Github className="w-3 h-3 sm:w-4 sm:h-4" />
                         </button>
-                        <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-100 hover:bg-cyber-purple hover:text-white flex items-center justify-center transition-all duration-200">
+                        <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-100 hover:bg-mountain-emerald hover:text-white flex items-center justify-center transition-all duration-200">
                           <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
                         </button>
                       </div>
@@ -182,14 +182,14 @@ export default function WorkPage() {
                   ].map((tech, index) => (
                     <motion.div
                       key={tech}
-                      className="text-center p-3 sm:p-4 rounded-xl bg-white/50 hover:bg-gradient-to-br hover:from-cyber-blue/10 hover:to-cyber-purple/10 transition-all duration-300 group"
+                      className="text-center p-3 sm:p-4 rounded-xl bg-white/50 hover:bg-gradient-to-br hover:from-mountain-teal/10 hover:to-mountain-emerald/10 transition-all duration-300 group"
                       whileHover={{ scale: 1.05, y: -5 }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                     >
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 rounded-lg bg-brand-100 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-cyber-blue group-hover:to-cyber-purple transition-all duration-300">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 rounded-lg bg-brand-100 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-mountain-teal group-hover:to-mountain-emerald transition-all duration-300">
                         <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-600 rounded group-hover:bg-white transition-colors duration-300" />
                       </div>
                       <span className="text-xs sm:text-sm font-medium text-brand-700 group-hover:text-cyber-blue transition-colors duration-300">

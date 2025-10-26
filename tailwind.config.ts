@@ -53,12 +53,13 @@ export default {
           via: "#764ba2",
           to: "#f093fb",
         },
-        cyber: {
-          blue: "#00d4ff",
-          purple: "#7c3aed",
-          pink: "#f472b6",
-          green: "#00ff88",
-          orange: "#ff6b35",
+        mountain: {
+          cyan: "#67e8f9",
+          teal: "#0891b2", 
+          blue: "#0284c7",
+          green: "#059669",
+          emerald: "#10b981",
+          forest: "#065f46",
         }
       },
       fontFamily: {

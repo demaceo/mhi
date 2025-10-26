@@ -67,7 +67,7 @@ export function Footer() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm text-brand-600 hover:text-cyber-blue transition-colors"
+                    className="text-sm text-brand-600 hover:text-mountain-teal transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -93,7 +93,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-brand-100 hover:bg-gradient-to-br hover:from-cyber-blue hover:to-cyber-purple rounded-xl flex items-center justify-center transition-all duration-300 hover:text-white group"
+                    className="w-10 h-10 bg-brand-100 hover:bg-gradient-to-br hover:from-mountain-teal hover:to-mountain-emerald rounded-xl flex items-center justify-center transition-all duration-300 hover:text-white group"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, scale: 0 }}

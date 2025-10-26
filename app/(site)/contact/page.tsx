@@ -29,21 +29,21 @@ const contactInfo = [
     title: 'Email',
     details: 'hello@milehighinterface.com',
     description: 'Send us a direct message',
-    color: 'from-cyber-blue to-blue-600'
+    color: 'from-mountain-teal to-mountain-blue'
   },
   {
     icon: MapPin,
     title: 'Location',
     details: 'Colorado, USA',
     description: 'Mountain timezone (MST/MDT)',
-    color: 'from-cyber-green to-green-600'
+    color: 'from-mountain-emerald to-mountain-green'
   },
   {
     icon: Clock,
     title: 'Response Time',
     details: '1-2 business days',
     description: 'We reply quickly',
-    color: 'from-cyber-purple to-purple-600'
+    color: 'from-mountain-cyan to-mountain-teal'
   }
 ];
 
@@ -123,8 +123,8 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-full px-4 py-2 border border-cyber-blue/20">
-              <Sparkles className="w-4 h-4 text-cyber-blue" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-4 py-2 border border-mountain-teal/20">
+              <Sparkles className="w-4 h-4 text-mountain-teal" />
               <span className="text-sm font-medium text-brand-700">Let's Work Together</span>
             </div>
             
@@ -206,17 +206,15 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Card className="relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/5 to-cyber-purple/5" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-mountain-teal/5 to-mountain-emerald/5" />
                   <div className="relative">
-                    <CardHeader className="pb-6">
-                      <CardTitle className="text-2xl font-bold text-brand-900 flex items-center gap-3">
-                        <MessageSquare className="w-6 h-6 text-cyber-blue" />
-                        Send us a message
-                      </CardTitle>
-                      <CardDescription className="text-base">
-                        Fill out the form below and we'll get back to you as soon as possible.
-                      </CardDescription>
-                    </CardHeader>
+                    <div className="text-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-brand-100 to-brand-200 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                        <MessageSquare className="w-6 h-6 text-mountain-teal" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-brand-900 mb-2">Let's Work Together</h2>
+                      <p className="text-brand-600">Ready to bring your idea to life? Let's discuss your project.</p>
+                    </div>
 
                     <CardContent className="p-6 pt-0">
                       {state === 'sent' ? (
@@ -225,7 +223,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, scale: 1 }}
                           className="text-center py-12 space-y-4"
                         >
-                          <div className="w-16 h-16 bg-gradient-to-br from-cyber-green to-green-600 rounded-full flex items-center justify-center mx-auto">
+                          <div className="w-16 h-16 bg-gradient-to-br from-mountain-emerald to-mountain-green rounded-full flex items-center justify-center mx-auto">
                             <CheckCircle2 className="w-8 h-8 text-white" />
                           </div>
                           <h3 className="text-xl font-semibold text-brand-900">
@@ -246,10 +244,10 @@ export default function ContactPage() {
                             <input 
                               name="name" 
                               placeholder="Your full name"
-                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyber-blue/20 ${
+                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 ${
                                 errors['name'] 
                                   ? 'border-red-300 bg-red-50' 
-                                  : 'border-brand-200 bg-white hover:border-brand-300 focus:border-cyber-blue'
+                                  : 'border-brand-200 bg-white hover:border-brand-300 focus:border-mountain-teal'
                               }`}
                               required 
                             />
@@ -275,10 +273,10 @@ export default function ContactPage() {
                               type="email" 
                               name="email" 
                               placeholder="your.email@example.com"
-                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyber-blue/20 ${
+                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 ${
                                 errors['email'] 
                                   ? 'border-red-300 bg-red-50' 
-                                  : 'border-brand-200 bg-white hover:border-brand-300 focus:border-cyber-blue'
+                                  : 'border-brand-200 bg-white hover:border-brand-300 focus:border-mountain-teal'
                               }`}
                               required 
                             />
@@ -304,10 +302,10 @@ export default function ContactPage() {
                               name="message" 
                               rows={6} 
                               placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
-                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyber-blue/20 resize-none ${
+                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 resize-none ${
                                 errors['message'] 
                                   ? 'border-red-300 bg-red-50' 
-                                  : 'border-brand-200 bg-white hover:border-brand-300 focus:border-cyber-blue'
+                                  : 'border-brand-200 bg-white hover:border-brand-300 focus:border-mountain-teal'
                               }`}
                               required 
                             />
@@ -383,7 +381,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
           >
             <Card className="relative overflow-hidden bg-gradient-to-br from-brand-900 to-brand-800 border-0 text-white">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/20 to-cyber-purple/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-mountain-teal/20 to-mountain-emerald/20" />
               <div className="relative p-8 lg:p-12 space-y-6">
                 <h2 className="text-3xl md:text-4xl font-bold">
                   Prefer a Different Approach?

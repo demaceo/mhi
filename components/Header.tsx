@@ -85,13 +85,13 @@ export function Header() {
                     "relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200",
                     "hover:bg-white/10 hover:backdrop-blur-sm",
                     pathname === link.href 
-                      ? "bg-gradient-to-r from-cyber-blue/20 to-cyber-purple/20 text-cyber-blue border border-cyber-blue/30" 
+                      ? "bg-gradient-to-r from-mountain-teal/20 to-mountain-emerald/20 text-mountain-teal border border-mountain-teal/30" 
                       : "text-brand-600 hover:text-brand-900"
                   )}
                 >
                   {pathname === link.href && (
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-xl"
                       layoutId="activeTab"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
@@ -157,7 +157,7 @@ export function Header() {
                       className={cn(
                         "block px-4 py-3 rounded-xl text-sm font-medium transition-all",
                         pathname === link.href
-                          ? "bg-gradient-to-r from-cyber-blue/20 to-cyber-purple/20 text-cyber-blue border border-cyber-blue/30"
+                          ? "bg-gradient-to-r from-mountain-teal/20 to-mountain-emerald/20 text-mountain-teal border border-mountain-teal/30"
                           : "text-brand-600 hover:bg-white/10 hover:text-brand-900"
                       )}
                       onClick={() => setIsMobileMenuOpen(false)}

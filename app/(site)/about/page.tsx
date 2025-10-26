@@ -19,25 +19,25 @@ const principles = [
     icon: Shield,
     title: 'Accessibility by Default',
     description: 'Every interface we build is designed to be inclusive and usable by everyone, regardless of ability or device.',
-    color: 'from-cyber-blue to-blue-600'
+    color: 'from-mountain-teal to-mountain-blue'
   },
   {
     icon: Target,
     title: 'Lean, Measurable Outcomes',
     description: 'We focus on delivering value quickly and iterating based on real user feedback and data.',
-    color: 'from-cyber-green to-green-600'
+    color: 'from-mountain-emerald to-mountain-green'
   },
   {
     icon: Heart,
     title: 'Privacy‑Respecting Analytics',
     description: 'User privacy is paramount. We implement analytics that respect user consent and data rights.',
-    color: 'from-cyber-purple to-purple-600'
+    color: 'from-mountain-cyan to-mountain-teal'
   },
   {
     icon: Zap,
     title: 'Calm, Expressive Motion',
     description: 'Thoughtful animations and micro-interactions that enhance usability without overwhelming users.',
-    color: 'from-cyber-pink to-pink-600'
+    color: 'from-mountain-green to-mountain-forest'
   }
 ];
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Card className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/10 to-cyber-purple/10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10" />
                 <div className="relative p-6 sm:p-8 space-y-6">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="text-center">
@@ -241,7 +241,7 @@ export default function AboutPage() {
               >
                 <Card className="h-full text-center group hover:scale-105 transition-transform duration-300">
                   <CardHeader className="pb-3 sm:pb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-cyber-blue group-hover:to-cyber-purple transition-all duration-300">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-mountain-teal group-hover:to-mountain-emerald transition-all duration-300">
                       <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-700 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <CardTitle className="text-base sm:text-lg font-semibold text-brand-900">
@@ -291,7 +291,7 @@ export default function AboutPage() {
                 <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                      <Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-cyber-blue" />
+                      <Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-mountain-teal" />
                       <h3 className="text-lg sm:text-xl font-semibold text-brand-900">Frontend</h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -305,7 +305,7 @@ export default function AboutPage() {
                   
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                      <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-cyber-purple" />
+                      <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-mountain-emerald" />
                       <h3 className="text-lg sm:text-xl font-semibold text-brand-900">Design & Tools</h3>
                     </div>
                     <div className="flex flex-wrap gap-2">

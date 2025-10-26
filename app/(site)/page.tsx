@@ -23,25 +23,25 @@ const features = [
     icon: Rocket,
     title: 'New App Development',
     description: 'Turn your mobile app idea into reality with modern, scalable technology and intuitive design.',
-    color: 'from-cyber-blue to-blue-600'
+    color: 'from-mountain-teal to-mountain-blue'
   },
   {
     icon: Globe,
     title: 'Website Creation',
     description: 'Build professional websites that convert visitors into customers and grow your business.',
-    color: 'from-cyber-purple to-purple-600'
+    color: 'from-mountain-cyan to-mountain-teal'
   },
   {
     icon: Zap,
     title: 'App Enhancement',
     description: 'Improve existing apps with new features, better performance, and enhanced user experience.',
-    color: 'from-cyber-pink to-pink-600'
+    color: 'from-mountain-emerald to-mountain-green'
   },
   {
     icon: Target,
     title: 'Website Optimization',
     description: 'Upgrade your current website with modern design, faster loading, and better functionality.',
-    color: 'from-cyber-green to-green-600'
+    color: 'from-mountain-green to-mountain-forest'
   }
 ];
 
@@ -82,8 +82,8 @@ export default function HomePage() {
       <section className="relative py-20 lg:py-32 overflow-hidden" role="banner">
         {/* Background Elements */}
         <div className="absolute inset-0 cyber-grid opacity-30" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber-blue/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyber-purple/10 rounded-full blur-3xl animate-pulse-slow delay-1000" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-mountain-teal/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-mountain-emerald/10 rounded-full blur-3xl animate-pulse-slow delay-1000" />
         
         <div className="container relative z-10">
           <motion.header
@@ -93,8 +93,8 @@ export default function HomePage() {
             animate="visible"
           >
             <motion.div variants={itemVariants} className="space-y-4">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-full px-4 py-2 border border-cyber-blue/20">
-                <Sparkles className="w-4 h-4 text-cyber-blue" />
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-4 py-2 border border-mountain-teal/20">
+                <Sparkles className="w-4 h-4 text-mountain-teal" />
                 <span className="text-sm font-medium text-brand-700">App & Website Development</span>
               </div>
               
@@ -158,8 +158,8 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <header className="text-center space-y-6 mb-16">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-purple/10 to-cyber-pink/10 rounded-full px-4 py-2 border border-cyber-purple/20">
-                <Users className="w-4 h-4 text-cyber-purple" />
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-emerald/10 to-mountain-green/10 rounded-full px-4 py-2 border border-mountain-emerald/20">
+                <Users className="w-4 h-4 text-mountain-emerald" />
                 <span className="text-sm font-medium text-brand-700">Find Your Match</span>
               </div>
               
@@ -181,7 +181,7 @@ export default function HomePage() {
                   title: 'Entrepreneurs',
                   description: 'You have a game-changing idea and need to bring it to life quickly.',
                   goals: ['Validate your concept', 'Build an MVP fast', 'Attract investors', 'Scale efficiently'],
-                  color: 'from-cyber-blue to-blue-600',
+                  color: 'from-mountain-teal to-mountain-blue',
                   delay: 0
                 },
                 {
@@ -189,7 +189,7 @@ export default function HomePage() {
                   title: 'Startup Founders',
                   description: 'You\'re ready to disrupt an industry with innovative technology.',
                   goals: ['Rapid prototyping', 'Technical co-founder support', 'Product-market fit', 'Growth optimization'],
-                  color: 'from-cyber-purple to-purple-600',
+                  color: 'from-mountain-cyan to-mountain-teal',
                   delay: 0.2
                 },
                 {
@@ -197,7 +197,7 @@ export default function HomePage() {
                   title: 'Small Business Owners',
                   description: 'You want to modernize operations and reach more customers online.',
                   goals: ['Professional web presence', 'Process automation', 'Customer engagement', 'Revenue growth'],
-                  color: 'from-cyber-green to-green-600',
+                  color: 'from-mountain-emerald to-mountain-green',
                   delay: 0.4
                 },
                 {
@@ -205,7 +205,7 @@ export default function HomePage() {
                   title: 'Investors',
                   description: 'You\'re backing portfolio companies that need technical execution.',
                   goals: ['Due diligence support', 'Technical roadmaps', 'Portfolio optimization', 'Risk mitigation'],
-                  color: 'from-cyber-pink to-pink-600',
+                  color: 'from-mountain-green to-mountain-forest',
                   delay: 0.6
                 },
                 {
@@ -241,7 +241,7 @@ export default function HomePage() {
                           <client.icon className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-brand-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyber-blue group-hover:to-cyber-purple group-hover:bg-clip-text transition-all duration-300">
+                          <h3 className="text-xl font-bold text-brand-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-mountain-teal group-hover:to-mountain-emerald group-hover:bg-clip-text transition-all duration-300">
                             {client.title}
                           </h3>
                         </div>
@@ -265,7 +265,7 @@ export default function HomePage() {
                               viewport={{ once: true }}
                               transition={{ duration: 0.4, delay: client.delay + (goalIndex * 0.1) }}
                             >
-                              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyber-blue to-cyber-purple" />
+                              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-mountain-teal to-mountain-emerald" />
                               <span>{goal}</span>
                             </motion.li>
                           ))}
@@ -279,7 +279,7 @@ export default function HomePage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: client.delay + 0.5 }}
                       >
-                        <Button variant="ghost" size="sm" className="w-full group-hover:bg-gradient-to-r group-hover:from-cyber-blue/10 group-hover:to-cyber-purple/10 transition-all duration-300">
+                        <Button variant="ghost" size="sm" className="w-full group-hover:bg-gradient-to-r group-hover:from-mountain-teal/10 group-hover:to-mountain-emerald/10 transition-all duration-300">
                           <Link href="/contact" className="flex items-center justify-center gap-2 w-full">
                             Let's Talk
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -352,7 +352,7 @@ export default function HomePage() {
               
               <div className="relative z-10 p-8 lg:p-12 space-y-6">
                 <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyber-blue to-cyber-purple rounded-2xl flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mountain-teal to-mountain-emerald rounded-2xl flex items-center justify-center">
                     <Rocket className="w-8 h-8 text-white" />
                   </div>
                 </div>

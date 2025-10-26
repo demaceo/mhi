@@ -18,8 +18,8 @@ const buttonVariants = {
   secondary: 'bg-brand-100 text-brand-900 hover:bg-brand-200',
   outline: 'border-2 border-brand-300 text-brand-700 hover:bg-brand-50 hover:border-brand-400',
   ghost: 'text-brand-700 hover:bg-brand-100 hover:text-brand-900',
-  gradient: 'bg-gradient-to-r from-cyber-blue to-cyber-purple text-white shadow-lg hover:shadow-cyber-blue/25',
-  cyber: 'bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink text-white shadow-lg hover:shadow-glow border border-cyber-blue/30',
+  gradient: 'bg-gradient-to-r from-mountain-teal to-mountain-emerald text-white shadow-lg hover:shadow-mountain-teal/25',
+  cyber: 'bg-gradient-to-r from-mountain-cyan via-mountain-teal to-mountain-green text-white shadow-lg hover:shadow-glow border border-mountain-teal/30',
 };
 
 const sizeVariants = {
@@ -35,7 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       // Base styles
       'inline-flex items-center justify-center rounded-2xl font-semibold',
       'transition-all duration-200 ease-out',
-      'focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-blue focus-visible:ring-opacity-50 focus-visible:ring-offset-2',
+      'focus:outline-none focus-visible:ring-2 focus-visible:ring-mountain-teal focus-visible:ring-opacity-50 focus-visible:ring-offset-2',
       'disabled:opacity-50 disabled:cursor-not-allowed',
       'relative overflow-hidden group',
       // Variants

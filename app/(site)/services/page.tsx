@@ -23,28 +23,28 @@ const services = [
     title: 'Product & UI Engineering',
     description: 'Full-stack development with React, Next.js, TypeScript, and modern tooling.',
     features: ['Component Libraries', 'Performance Optimization', 'Accessibility Standards', 'Testing & CI/CD'],
-    color: 'from-cyber-blue to-blue-600'
+    color: 'from-mountain-teal to-mountain-blue'
   },
   {
     icon: BarChart3,
     title: 'Data Visualization',
     description: 'Interactive dashboards and story-driven visualizations that make data compelling.',
     features: ['D3.js Implementations', 'Interactive Charts', 'Real-time Dashboards', 'Custom Visualizations'],
-    color: 'from-cyber-purple to-purple-600'
+    color: 'from-mountain-cyan to-mountain-teal'
   },
   {
     icon: Globe,
     title: 'Business Website Development',
     description: 'Professional websites that establish credibility and drive customer engagement for your business.',
     features: ['Responsive Design', 'SEO Optimization', 'Content Management', 'Analytics Integration'],
-    color: 'from-cyber-green to-green-600'
+    color: 'from-mountain-emerald to-mountain-green'
   },
   {
     icon: Zap,
     title: 'MVP Development & Validation',
     description: 'Rapid development of minimum viable products to test your business ideas and validate market demand.',
     features: ['Quick Turnaround', 'User Testing', 'Market Validation', 'Scalable Architecture'],
-    color: 'from-cyber-pink to-pink-600'
+    color: 'from-mountain-green to-mountain-forest'
   }
 ];
 
@@ -106,8 +106,8 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-full px-3 sm:px-4 py-2 border border-cyber-blue/20">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-cyber-blue" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-3 sm:px-4 py-2 border border-mountain-teal/20">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-mountain-teal" />
               <span className="text-xs sm:text-sm font-medium text-brand-700">Full-Service Development</span>
             </div>
             
@@ -176,7 +176,7 @@ export default function ServicesPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: (index * 0.1) + (featureIndex * 0.05) }}
                           >
-                            <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-green flex-shrink-0" />
+                            <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-mountain-emerald flex-shrink-0" />
                             <span className="text-sm sm:text-base text-brand-700 font-medium">{feature}</span>
                           </motion.div>
                         ))}
@@ -219,7 +219,7 @@ export default function ServicesPage() {
               >
                 <Card className="h-full text-center group hover:scale-105 transition-transform duration-300">
                   <CardHeader className="pb-3 sm:pb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-cyber-blue group-hover:to-cyber-purple transition-all duration-300">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-mountain-teal group-hover:to-mountain-emerald transition-all duration-300">
                       <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-700 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <CardTitle className="text-base sm:text-lg font-semibold text-brand-900">
@@ -267,7 +267,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="text-center space-y-4">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full bg-gradient-to-br from-cyber-blue to-cyber-purple flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full bg-gradient-to-br from-mountain-teal to-mountain-emerald flex items-center justify-center text-white font-bold text-base sm:text-lg">
                     {step.step}
                   </div>
                   <h3 className="text-lg sm:text-xl font-semibold text-brand-900 px-2">
@@ -279,7 +279,7 @@ export default function ServicesPage() {
                 </div>
                 
                 {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-7 sm:top-8 left-full w-full h-0.5 bg-gradient-to-r from-cyber-blue/30 to-transparent -translate-x-8" />
+                  <div className="hidden lg:block absolute top-7 sm:top-8 left-full w-full h-0.5 bg-gradient-to-r from-mountain-teal/30 to-transparent -translate-x-8" />
                 )}
               </motion.div>
             ))}
@@ -298,7 +298,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
           >
             <Card className="relative overflow-hidden bg-gradient-to-br from-brand-900 to-brand-800 border-0 text-white">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/20 to-cyber-purple/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-mountain-teal/20 to-mountain-emerald/20" />
               <div className="relative p-6 sm:p-8 lg:p-12 space-y-6">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
                   Ready to Get Started?
