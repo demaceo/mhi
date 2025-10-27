@@ -17,10 +17,19 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 
 const stats = [
-  { value: '50+', label: 'Apps & Websites Built' },
-  { value: '99%', label: 'Client Satisfaction' },
-  { value: '48hr', label: 'Response Time' },
-  { value: '5+', label: 'Years Experience' }
+  // Todo: place some of these stats in the About page
+  // { value: '2-4x', label: 'ROI for Clients' },
+  // { value: '30%', label: 'Faster Time to Market' },
+  // { value: '95%', label: 'User Retention Rate' },
+  // { value: '24/7', label: 'Support & Monitoring' }
+  { value: "$2M+", label: "Client Revenue Generated" },
+  { value: "150%", label: "Average User Growth" },
+  { value: "8wks", label: "Average MVP Delivery" },
+  { value: "100%", label: "On-Time Delivery Rate" },
+  // { value: "50+", label: "Successful Launches" },
+  // { value: "10+", label: "Industries Served" },
+  // { value: "3.5x", label: "Faster Development" },
+  // { value: "0", label: "Failed Projects" },
 ];
 
 const containerVariants = {

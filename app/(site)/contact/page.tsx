@@ -398,14 +398,14 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 mr-2" />
                     Email Us Directly
                   </Button>
-                  <Button 
+                  {/* <Button 
                     variant="ghost" 
                     size="lg" 
                     className="text-white hover:bg-white/10"
                     onClick={() => window.open('https://linkedin.com/company/milehighinterface', '_blank')}
                   >
                     Connect on LinkedIn
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </Card>

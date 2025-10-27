@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/demaceo', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/demaceo', label: 'LinkedIn' },
+  // { icon: Github, href: 'https://github.com/demaceo', label: 'GitHub' },
+  // { icon: Linkedin, href: 'https://linkedin.com/in/demaceo', label: 'LinkedIn' },
   { icon: Mail, href: 'mailto:hello@milehighinterface.com', label: 'Email' },
 ];
 
@@ -120,14 +120,14 @@ export function Footer() {
           <p className="text-sm text-brand-500">
             © {new Date().getFullYear()} Mile High Interface LLC. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-sm text-brand-500">
+          {/* <div className="flex items-center gap-2 text-sm text-brand-500">
             <span>Built with</span>
             <span className="font-mono text-xs bg-brand-100 px-2 py-1 rounded">Next.js</span>
             <span>+</span>
             <span className="font-mono text-xs bg-brand-100 px-2 py-1 rounded">TypeScript</span>
             <span>+</span>
             <span className="font-mono text-xs bg-brand-100 px-2 py-1 rounded">Tailwind</span>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </footer>
