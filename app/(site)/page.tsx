@@ -174,7 +174,7 @@ export default function HomePage() {
                 {
                   icon: Shield,
                   title: 'Investors',
-                  description: 'You&apos;re backing portfolio companies that need technical execution.',
+                  description: 'You are backing portfolio companies that need technical execution.',
                   goals: ['Due diligence support', 'Technical roadmaps', 'Portfolio optimization', 'Risk mitigation'],
                   color: 'from-mountain-green to-mountain-forest',
                   delay: 0.6
