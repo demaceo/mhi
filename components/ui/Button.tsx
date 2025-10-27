@@ -14,12 +14,12 @@ export interface ButtonProps {
 }
 
 const buttonVariants = {
-  default: 'bg-brand-900 text-white hover:bg-brand-800 shadow-lg hover:shadow-xl',
-  secondary: 'bg-brand-100 text-brand-900 hover:bg-brand-200',
-  outline: 'border-2 border-brand-300 text-brand-700 hover:bg-brand-50 hover:border-brand-400',
-  ghost: 'text-brand-700 hover:bg-brand-100 hover:text-brand-900',
-  gradient: 'bg-gradient-to-r from-mountain-teal to-mountain-emerald text-white shadow-lg hover:shadow-xl',
-  cyber: 'bg-gradient-to-r from-mountain-cyan via-mountain-teal to-mountain-green text-white shadow-lg hover:shadow-glow border border-mountain-teal/30',
+  default: 'bg-brand-900 text-white hover:bg-brand-800 shadow-lg hover:shadow-xl dark:bg-brand-100 dark:text-brand-900 dark:hover:bg-brand-200',
+  secondary: 'bg-brand-100 text-brand-900 hover:bg-brand-200 dark:bg-brand-800 dark:text-brand-100 dark:hover:bg-brand-700',
+  outline: 'border-2 border-brand-300 text-brand-700 hover:bg-brand-50 hover:border-brand-400 dark:border-brand-600 dark:text-brand-300 dark:hover:bg-brand-800 dark:hover:border-brand-500',
+  ghost: 'text-brand-700 hover:bg-brand-100 hover:text-brand-900 dark:text-brand-300 dark:hover:bg-brand-800 dark:hover:text-brand-100',
+  gradient: 'bg-gradient-to-r from-mountain-teal to-mountain-emerald text-white shadow-lg hover:shadow-xl dark:from-mountain-cyan dark:to-mountain-teal',
+  cyber: 'bg-gradient-to-r from-mountain-cyan via-mountain-teal to-mountain-green text-white shadow-lg hover:shadow-glow border border-mountain-teal/30 dark:border-mountain-cyan/40 dark:hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]',
 };
 
 const sizeVariants = {

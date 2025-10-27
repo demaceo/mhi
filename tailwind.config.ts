@@ -6,6 +6,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./styles/**/*.{ts,tsx,css}"
   ],
+  darkMode: 'media', // Automatically switches based on system preference
   theme: {
     extend: {
       colors: {
@@ -163,5 +164,7 @@ export default {
       },
     },
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/typography'),
+  ]
 } satisfies Config;

@@ -79,7 +79,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
       <head>
         <link rel="canonical" href={site.url} />
-        <meta name="theme-color" content="#0ea5e9" />
+        <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
+        <meta name="color-scheme" content="light dark" />
         <meta name="application-name" content={site.name} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

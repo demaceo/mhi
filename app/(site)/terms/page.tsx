@@ -6,7 +6,7 @@ export default function TermsPage() {
           <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Terms of Service</h1>
           <p className="text-lg text-white/90 max-w-xl mx-auto">By using this website, you agree to the following terms and conditions. Please read them carefully.</p>
         </header>
-        <section className="prose max-w-none bg-white rounded-b-2xl shadow-xl px-8 py-10 mt-0">
+        <section className="prose max-w-none bg-white dark:bg-brand-900 rounded-b-2xl shadow-xl px-8 py-10 mt-0 dark:prose-invert">
           <h2>1. Use of Site</h2>
           <ul>
             <li>You agree to use this site for lawful purposes only.</li>

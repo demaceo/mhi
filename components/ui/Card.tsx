@@ -12,10 +12,10 @@ export interface CardProps {
 }
 
 const cardVariants = {
-  default: 'bg-white border border-brand-200 shadow-sm',
-  glass: 'glass border border-white/20 backdrop-blur-xl',
-  cyber: 'bg-brand-900/5 border border-mountain-teal/20 shadow-lg hover:shadow-xl',
-  gradient: 'bg-gradient-to-br from-white to-brand-50 border border-brand-200',
+  default: 'bg-white border border-brand-200 shadow-sm dark:bg-brand-900 dark:border-brand-700',
+  glass: 'glass border border-white/20 backdrop-blur-xl dark:border-mountain-cyan/20',
+  cyber: 'bg-brand-900/5 border border-mountain-teal/20 shadow-lg hover:shadow-xl dark:bg-brand-100/5 dark:border-mountain-cyan/30',
+  gradient: 'bg-gradient-to-br from-white to-brand-50 border border-brand-200 dark:from-brand-900 dark:to-brand-800 dark:border-brand-700',
 };
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
@@ -71,7 +71,7 @@ export const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<H
   ({ className, ...props }, ref) => (
     <p
       ref={ref}
-      className={cn('text-sm text-brand-600', className)}
+      className={cn('text-sm text-brand-600 dark:text-brand-400', className)}
       {...props}
     />
   )
@@ -89,7 +89,7 @@ export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex items-center pt-4 border-t border-brand-200', className)}
+      className={cn('flex items-center pt-4 border-t border-brand-200 dark:border-brand-700', className)}
       {...props}
     />
   )
