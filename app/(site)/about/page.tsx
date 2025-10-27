@@ -80,14 +80,14 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 lg:py-32">
         <div className="container px-4 sm:px-6">
           <motion.div
-            className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8"
+            className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 px-4 py-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-relaxed overflow-visible">
               <span className="text-brand-900">About</span>
-              <span className="block text-gradient">Mile High Interface</span>
+              <span className="block text-gradient" style={{ lineHeight: '1.4' }}>Mile High Interface</span>
             </h1>
             
             <p className="text-base sm:text-lg lg:text-xl text-brand-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
