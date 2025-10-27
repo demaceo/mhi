@@ -383,6 +383,32 @@ body::before {
   .border-mountain-teal {
     border-color: #22d3ee;
   }
+  
+  /* Enhanced text visibility in dark mode */
+  .text-brand-600 {
+    color: #cbd5e1 !important; /* Light gray for better readability */
+  }
+  
+  .text-brand-700 {
+    color: #e2e8f0 !important; /* Lighter gray for secondary text */
+  }
+  
+  .text-brand-900 {
+    color: #f8fafc !important; /* Almost white for primary headings */
+  }
+  
+  .text-gray-300 {
+    color: #d1d5db !important;
+  }
+  
+  .text-gray-600 {
+    color: #9ca3af !important;
+  }
+  
+  /* Enhanced prose colors for better readability */
+  .prose-brand-600 {
+    color: #cbd5e1 !important;
+  }
 }
 
 /* Theme-aware card backgrounds */

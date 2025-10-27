@@ -60,10 +60,10 @@ export function Header() {
                 />
               </div>
               <div className="hidden sm:block">
-                <span className="text-xl font-bold bg-gradient-to-r from-brand-900 to-brand-600 bg-clip-text text-transparent">
+                <span className="text-xl font-bold bg-gradient-to-r from-brand-900 to-brand-600 dark:from-brand-100 dark:to-brand-300 bg-clip-text text-transparent">
                   Mile High Interface
                 </span>
-                <div className="text-xs text-brand-500 font-medium tracking-wider uppercase">
+                <div className="text-xs text-brand-500 dark:text-brand-400 font-medium tracking-wider uppercase">
                   App & Website Development
                 </div>
               </div>
@@ -86,7 +86,7 @@ export function Header() {
                     "hover:bg-white/10 hover:backdrop-blur-sm",
                     pathname === link.href 
                       ? "bg-gradient-to-r from-mountain-teal/20 to-mountain-emerald/20 text-mountain-teal border border-mountain-teal/30" 
-                      : "text-brand-600 hover:text-brand-900"
+                      : "text-brand-600 dark:text-brand-300 hover:text-brand-900 dark:hover:text-brand-100"
                   )}
                 >
                   {pathname === link.href && (
@@ -117,7 +117,7 @@ export function Header() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6 text-brand-700" />
+                  <X className="w-6 h-6 text-brand-700 dark:text-brand-300" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -127,7 +127,7 @@ export function Header() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6 text-brand-700" />
+                  <Menu className="w-6 h-6 text-brand-700 dark:text-brand-300" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -158,7 +158,7 @@ export function Header() {
                         "block px-4 py-3 rounded-xl text-sm font-medium transition-all",
                         pathname === link.href
                           ? "bg-gradient-to-r from-mountain-teal/20 to-mountain-emerald/20 text-mountain-teal border border-mountain-teal/30"
-                          : "text-brand-600 hover:bg-white/10 hover:text-brand-900"
+                          : "text-brand-600 dark:text-brand-300 hover:bg-white/10 hover:text-brand-900 dark:hover:text-brand-100"
                       )}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
