@@ -38,13 +38,13 @@ export function Footer() {
                   height={32}
                   className="w-8 h-8"
                 />
-                <span className="text-xl font-bold text-brand-900">Mile High Interface</span>
+                <span className="text-xl font-bold text-brand-900 dark:text-brand-100">Mile High Interface</span>
               </div>
-              <p className="text-brand-600 max-w-md leading-relaxed">
+              <p className="text-brand-600 dark:text-brand-300 max-w-md leading-relaxed">
                 App & website development for entrepreneurs and startups. 
                 Building accessible, delightful interfaces that make a difference.
               </p>
-              <div className="flex items-center gap-2 text-sm text-brand-500">
+              <div className="flex items-center gap-2 text-sm text-brand-500 dark:text-brand-400">
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-500 fill-current" />
                 <span>in Colorado</span>
@@ -61,13 +61,13 @@ export function Footer() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-4"
             >
-              <h3 className="font-semibold text-brand-900">Quick Links</h3>
+              <h3 className="font-semibold text-brand-900 dark:text-brand-100">Quick Links</h3>
               <nav className="flex flex-col space-y-2">
                 {footerLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm text-brand-600 hover:text-mountain-teal transition-colors"
+                    className="text-sm text-brand-600 dark:text-brand-300 hover:text-mountain-teal transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -85,7 +85,7 @@ export function Footer() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-4"
             >
-              <h3 className="font-semibold text-brand-900">Connect</h3>
+              <h3 className="font-semibold text-brand-900 dark:text-brand-100">Connect</h3>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -93,7 +93,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-brand-100 hover:bg-gradient-to-br hover:from-mountain-teal hover:to-mountain-emerald rounded-xl flex items-center justify-center transition-all duration-300 hover:text-white group"
+                    className="w-10 h-10 bg-brand-100 dark:bg-brand-700 hover:bg-gradient-to-br hover:from-mountain-teal hover:to-mountain-emerald rounded-xl flex items-center justify-center transition-all duration-300 hover:text-white group"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, scale: 0 }}
@@ -101,7 +101,7 @@ export function Footer() {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-5 h-5 text-brand-700 dark:text-brand-200 group-hover:text-white" />
                   </motion.a>
                 ))}
               </div>
@@ -117,7 +117,7 @@ export function Footer() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col md:flex-row items-center justify-between pt-8 mt-8 border-t border-brand-200/50 gap-4"
         >
-          <p className="text-sm text-brand-500">
+          <p className="text-sm text-brand-500 dark:text-brand-400">
             © {new Date().getFullYear()} Mile High Interface LLC. All rights reserved.
           </p>
           {/* <div className="flex items-center gap-2 text-sm text-brand-500">

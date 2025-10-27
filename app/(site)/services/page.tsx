@@ -108,15 +108,15 @@ export default function ServicesPage() {
           >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-3 sm:px-4 py-2 border border-mountain-teal/20">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-mountain-teal" />
-              <span className="text-xs sm:text-sm font-medium text-brand-700">Full-Service Development</span>
+              <span className="text-xs sm:text-sm font-medium text-brand-700 dark:text-brand-300">Full-Service Development</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="text-brand-900">Services That</span>
+              <span className="text-brand-900 dark:text-brand-100">Services That</span>
               <span className="block text-gradient">Drive Results</span>
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-brand-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-lg lg:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               From concept to deployment, we offer comprehensive solutions that transform ideas into 
               exceptional digital experiences your users will love.
             </p>
@@ -134,11 +134,11 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-900">
-              Core Services
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-900 dark:text-brand-100">
+              Development Process
             </h2>
-            <p className="text-lg sm:text-xl text-brand-600 max-w-3xl mx-auto px-4 sm:px-0">
-              Comprehensive solutions tailored to your unique challenges and opportunities.
+            <p className="text-lg sm:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto px-4 sm:px-0">
+              Our proven development methodology ensures your project is delivered on time, within budget, and exceeds expectations.
             </p>
           </motion.div>
 
@@ -157,10 +157,10 @@ export default function ServicesPage() {
                       <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
                         <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
-                      <CardTitle className="text-xl sm:text-2xl font-bold text-brand-900 mb-3 text-left">
+                      <CardTitle className="text-xl sm:text-2xl font-bold text-brand-900 dark:text-brand-100 mb-3 text-left">
                         {service.title}
                       </CardTitle>
-                      <CardDescription className="text-sm sm:text-base text-brand-600 leading-relaxed text-left">
+                      <CardDescription className="text-sm sm:text-base text-brand-600 dark:text-brand-300 leading-relaxed text-left">
                         {service.description}
                       </CardDescription>
                     </CardHeader>
@@ -177,7 +177,7 @@ export default function ServicesPage() {
                             transition={{ duration: 0.3, delay: (index * 0.1) + (featureIndex * 0.05) }}
                           >
                             <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-mountain-emerald flex-shrink-0" />
-                            <span className="text-sm sm:text-base text-brand-700 font-medium">{feature}</span>
+                            <span className="text-sm sm:text-base text-brand-700 dark:text-brand-300 font-medium">{feature}</span>
                           </motion.div>
                         ))}
                       </div>
@@ -200,10 +200,10 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900">
-              Additional Expertise
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900 dark:text-brand-100">
+              Additional Services
             </h2>
-            <p className="text-base sm:text-lg text-brand-600 max-w-2xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
               Specialized services to enhance and optimize your digital products.
             </p>
           </motion.div>
@@ -219,10 +219,10 @@ export default function ServicesPage() {
               >
                 <Card className="h-full text-center group hover:scale-105 transition-transform duration-300">
                   <CardHeader className="pb-3 sm:pb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-mountain-teal group-hover:to-mountain-emerald transition-all duration-300">
-                      <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-700 group-hover:text-white transition-colors duration-300" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 dark:from-brand-700 dark:to-brand-600 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-mountain-teal group-hover:to-mountain-emerald transition-all duration-300">
+                      <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-700 dark:text-brand-200 group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <CardTitle className="text-base sm:text-lg font-semibold text-brand-900">
+                    <CardTitle className="text-base sm:text-lg font-semibold text-brand-900 dark:text-brand-100">
                       {service.title}
                     </CardTitle>
                   </CardHeader>
@@ -248,7 +248,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900 dark:text-brand-100">
               Our Process
             </h2>
             <p className="text-base sm:text-lg text-brand-600 max-w-2xl mx-auto px-4 sm:px-0">
@@ -270,16 +270,16 @@ export default function ServicesPage() {
                   <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full bg-gradient-to-br from-mountain-teal to-mountain-emerald flex items-center justify-center text-white font-bold text-base sm:text-lg">
                     {step.step}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-brand-900 px-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100 px-2">
                     {step.title}
                   </h3>
-                  <p className="text-brand-600 text-sm sm:text-base leading-relaxed px-2">
+                  <p className="text-brand-600 dark:text-brand-300 text-sm sm:text-base leading-relaxed px-2">
                     {step.description}
                   </p>
                 </div>
                 
                 {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-7 sm:top-8 left-full w-full h-0.5 bg-gradient-to-r from-mountain-teal/30 to-transparent -translate-x-8" />
+                  <div className="hidden lg:block absolute top-1/2 left-full w-8 h-0.5 bg-gradient-to-r from-mountain-teal/50 to-mountain-teal/20 transform -translate-y-0.5 translate-x-2" />
                 )}
               </motion.div>
             ))}

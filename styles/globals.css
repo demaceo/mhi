@@ -11,7 +11,7 @@
   --font-inter: 'Inter', system-ui, sans-serif;
   --font-fira-code: 'Fira Code', ui-monospace, monospace;
   
-  /* Logo-Inspired Gradients */
+  /* Light Theme Variables */
   --gradient-primary: linear-gradient(135deg, #0891b2 0%, #065f46 100%);
   --gradient-secondary: linear-gradient(135deg, #22d3ee 0%, #10b981 100%);
   --gradient-mountain: linear-gradient(135deg, #67e8f9 0%, #0891b2 35%, #065f46 70%, #059669 100%);
@@ -20,10 +20,41 @@
                    radial-gradient(at 0% 50%, #059669 0px, transparent 50%),
                    radial-gradient(at 80% 50%, #10b981 0px, transparent 50%);
   
-  /* Mountain-Inspired Shadows */
+  /* Light Theme Shadows */
   --shadow-glow: 0 0 20px rgba(8, 145, 178, 0.3);
   --shadow-mountain: 0 8px 32px rgba(6, 95, 70, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
   --shadow-elevated: 0 25px 50px -12px rgba(6, 95, 70, 0.25);
+  
+  /* Light Theme Colors */
+  --bg-overlay: rgba(255, 255, 255, 0.95);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Theme Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Theme Gradients - Enhanced with more vibrant mountain colors */
+    --gradient-primary: linear-gradient(135deg, #22d3ee 0%, #059669 100%);
+    --gradient-secondary: linear-gradient(135deg, #67e8f9 0%, #10b981 100%);
+    --gradient-mountain: linear-gradient(135deg, #22d3ee 0%, #0891b2 25%, #059669 50%, #10b981 75%, #67e8f9 100%);
+    --gradient-mesh: radial-gradient(at 40% 20%, #0891b2 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, #059669 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, #10b981 0px, transparent 50%),
+                     radial-gradient(at 80% 50%, #22d3ee 0px, transparent 50%);
+    
+    /* Dark Theme Shadows - Enhanced glows */
+    --shadow-glow: 0 0 30px rgba(34, 211, 238, 0.4);
+    --shadow-mountain: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(34, 211, 238, 0.1);
+    --shadow-elevated: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    
+    /* Dark Theme Colors */
+    --bg-overlay: rgba(15, 23, 42, 0.95);
+    --card-bg: rgba(30, 41, 59, 0.8);
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(34, 211, 238, 0.1);
+  }
 }
 
 /* Base Styles */
@@ -45,7 +76,9 @@ html, body {
 }
 
 body {
-  @apply bg-white text-brand-900 antialiased;
+  background: #ffffff;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
   background-image: var(--gradient-mesh);
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -59,22 +92,40 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-overlay);
   backdrop-filter: blur(100px);
   z-index: -1;
 }
 
-.dark body {
-  @apply bg-brand-950 text-brand-50;
-}
-
-.dark body::before {
-  background: rgba(15, 23, 42, 0.95);
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #020617;
+    color: #f8fafc;
+  }
 }
 
 /* Container */
 .container {
-  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* Typography */
@@ -89,15 +140,16 @@ body::before {
 
 /* Glass Morphism */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
 }
 
-.glass-dark {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+@media (prefers-color-scheme: dark) {
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+  }
 }
 
 /* Mountain Grid Background */
@@ -106,6 +158,14 @@ body::before {
     linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(34, 211, 238, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.15) 1px, transparent 1px);
+  }
 }
 
 /* Interactive Elements */
@@ -149,6 +209,18 @@ body::before {
   color: inherit;
 }
 
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: rgba(34, 211, 238, 0.3);
+    color: inherit;
+  }
+
+  ::-moz-selection {
+    background: rgba(34, 211, 238, 0.3);
+    color: inherit;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -167,9 +239,24 @@ body::before {
   background: rgba(8, 145, 178, 0.5);
 }
 
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 238, 0.4);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.6);
+  }
+}
+
 /* Focus Styles */
-.focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+.focus-ring:focus {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #0891b2;
+  outline-offset: 2px;
 }
 
 /* Animations */
@@ -217,6 +304,16 @@ body::before {
   );
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: linear-gradient(90deg, 
+      rgba(51, 65, 85, 0.3) 25%, 
+      rgba(51, 65, 85, 0.5) 50%, 
+      rgba(51, 65, 85, 0.3) 75%
+    );
+  }
 }
 
 @keyframes loading {
@@ -267,6 +364,56 @@ body::before {
 
 .glow-mountain {
   box-shadow: var(--shadow-glow);
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+  .text-mountain-teal {
+    color: #22d3ee;
+  }
+  
+  .text-mountain-cyan {
+    color: #67e8f9;
+  }
+  
+  .text-mountain-green {
+    color: #10b981;
+  }
+  
+  .border-mountain-teal {
+    border-color: #22d3ee;
+  }
+  
+  /* Enhanced text visibility in dark mode */
+  .text-brand-600 {
+    color: #cbd5e1 !important; /* Light gray for better readability */
+  }
+  
+  .text-brand-700 {
+    color: #e2e8f0 !important; /* Lighter gray for secondary text */
+  }
+  
+  .text-brand-900 {
+    color: #f8fafc !important; /* Almost white for primary headings */
+  }
+  
+  .text-gray-300 {
+    color: #d1d5db !important;
+  }
+  
+  .text-gray-600 {
+    color: #9ca3af !important;
+  }
+  
+  /* Enhanced prose colors for better readability */
+  .prose-brand-600 {
+    color: #cbd5e1 !important;
+  }
+}
+
+/* Theme-aware card backgrounds */
+.card-bg-light {
+  background: var(--card-bg);
 }
 
 /* Mountain Animation */

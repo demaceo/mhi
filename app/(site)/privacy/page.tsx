@@ -6,7 +6,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Privacy Policy</h1>
           <p className="text-lg text-white/90 max-w-xl mx-auto">Your privacy is important to us. This policy explains what information we collect, how we use it, and your rights regarding your data.</p>
         </header>
-        <section className="prose max-w-none bg-white rounded-b-2xl shadow-xl px-8 py-10 mt-0">
+        <section className="prose max-w-none bg-white dark:bg-brand-900 rounded-b-2xl shadow-xl px-8 py-10 mt-0 dark:prose-invert">
           <h2>1. Information We Collect</h2>
           <ul>
             <li><strong>Analytics:</strong> We use privacy-friendly analytics to understand site usage. No personally identifiable information is collected.</li>

@@ -86,11 +86,11 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-relaxed overflow-visible">
-              <span className="text-brand-900">About</span>
+              <span className="text-brand-900 dark:text-brand-100">About</span>
               <span className="block text-gradient" style={{ lineHeight: '1.4' }}>Mile High Interface</span>
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-brand-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-lg lg:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               We are an app & website development studio in Colorado, creating digital solutions that help 
               entrepreneurs, startups, and small businesses bring their ideas to life and grow their ventures.
             </p>
@@ -109,10 +109,10 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-brand-900">
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand-900 dark:text-brand-100">
                 Our Mission
               </h2>
-              <div className="prose prose-base sm:prose-lg text-brand-600 max-w-none">
+              <div className="prose prose-base sm:prose-lg text-brand-600 dark:text-brand-300 max-w-none dark:prose-invert">
                 <p>
                   We believe technology should empower entrepreneurs and help businesses thrive, 
                   creating solutions that drive growth and make meaningful impact. 
@@ -142,19 +142,19 @@ export default function AboutPage() {
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="text-center">
                       <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">50+</div>
-                      <div className="text-xs sm:text-sm text-brand-600 font-medium">Projects Delivered</div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Projects Delivered</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">5+</div>
-                      <div className="text-xs sm:text-sm text-brand-600 font-medium">Years Experience</div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Years Experience</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">99%</div>
-                      <div className="text-xs sm:text-sm text-brand-600 font-medium">Client Satisfaction</div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Client Satisfaction</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">24/7</div>
-                      <div className="text-xs sm:text-sm text-brand-600 font-medium">Support Available</div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Support Available</div>
                     </div>
                   </div>
                 </div>
@@ -174,10 +174,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900 dark:text-brand-100">
               Our Principles
             </h2>
-            <p className="text-base sm:text-lg text-brand-600 max-w-2xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
               The core beliefs that guide every decision we make and every project we undertake.
             </p>
           </motion.div>
@@ -196,7 +196,7 @@ export default function AboutPage() {
                     <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${principle.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <principle.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <CardTitle className="text-lg sm:text-xl font-semibold text-brand-900">
+                    <CardTitle className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">
                       {principle.title}
                     </CardTitle>
                   </CardHeader>
@@ -222,10 +222,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900 dark:text-brand-100">
               Our Values
             </h2>
-            <p className="text-base sm:text-lg text-brand-600 max-w-2xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
               The fundamental values that shape our culture and drive our commitment to excellence.
             </p>
           </motion.div>
@@ -242,9 +242,9 @@ export default function AboutPage() {
                 <Card className="h-full text-center group hover:scale-105 transition-transform duration-300">
                   <CardHeader className="pb-3 sm:pb-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-mountain-teal group-hover:to-mountain-emerald transition-all duration-300">
-                      <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-700 group-hover:text-white transition-colors duration-300" />
+                      <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-700 dark:text-brand-300 group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <CardTitle className="text-base sm:text-lg font-semibold text-brand-900">
+                    <CardTitle className="text-base sm:text-lg font-semibold text-brand-900 dark:text-brand-100">
                       {value.title}
                     </CardTitle>
                   </CardHeader>
@@ -270,10 +270,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-900 dark:text-brand-100">
               Technology Stack
             </h2>
-            <p className="text-base sm:text-lg text-brand-600 max-w-2xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
               We use cutting-edge tools and frameworks to build scalable, performant applications.
             </p>
           </motion.div>
@@ -292,11 +292,11 @@ export default function AboutPage() {
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3 mb-3 sm:mb-4">
                       <Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-mountain-teal" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900">Frontend</h3>
+                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">Frontend</h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'D3.js'].map(tech => (
-                        <span key={tech} className="px-2 sm:px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-xs sm:text-sm font-medium">
+                        <span key={tech} className="px-2 sm:px-3 py-1 bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-medium">
                           {tech}
                         </span>
                       ))}
@@ -306,11 +306,11 @@ export default function AboutPage() {
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3 mb-3 sm:mb-4">
                       <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-mountain-emerald" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900">Design & Tools</h3>
+                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">Design & Tools</h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {['Figma', 'Adobe Creative Suite', 'Principle', 'Lottie', 'WebGL', 'Three.js'].map(tech => (
-                        <span key={tech} className="px-2 sm:px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-xs sm:text-sm font-medium">
+                        <span key={tech} className="px-2 sm:px-3 py-1 bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-medium">
                           {tech}
                         </span>
                       ))}
