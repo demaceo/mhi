@@ -45,6 +45,7 @@
   --shadow-elevated: 0 25px 50px -12px rgba(6, 95, 70, 0.25);
 
   /* Light Theme Colors */
+  /* Default opaque overlay (keeps frosted/solid look). Aurora is stacked above it so it remains visible. */
   --bg-overlay: rgba(255, 255, 255, 0.95);
   --card-bg: rgba(255, 255, 255, 0.8);
   --glass-bg: rgba(255, 255, 255, 0.1);
@@ -137,7 +138,8 @@ body::before {
   height: 100%;
   background: var(--bg-overlay);
   backdrop-filter: blur(100px);
-  z-index: -1;
+  /* push further back so animated aurora (::after) can appear above it */
+  z-index: -3;
 }
 
 /* Subtle animated aurora overlay for depth */
@@ -166,7 +168,8 @@ body::after {
   transform: translate3d(0, 0, 0);
   animation: auroraShift 28s ease-in-out infinite alternate;
   will-change: transform, opacity;
-  z-index: -2; /* Below overlay, above body background */
+  /* place above the background and above the overlay for visibility */
+  z-index: -1; /* Visible above the body::before overlay */
 }
 
 /* Dark mode styles */
@@ -192,7 +195,7 @@ body::after {
         transparent 70%
       );
     filter: blur(100px) saturate(120%);
-    opacity: 0.6;
+    opacity: 0.62;
   }
 }
 
