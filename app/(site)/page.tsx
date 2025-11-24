@@ -1,13 +1,13 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Sparkles, 
-  Zap, 
-  Rocket, 
-  Target, 
-  Users, 
+import {
+  ArrowRight,
+  Sparkles,
+  Zap,
+  Rocket,
+  Target,
+  Users,
   Brain,
   Shield,
   Globe,
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import WhoAreYouForm from '@/components/WhoAreYouForm';
 
 const stats = [
   // Todo: place some of these stats in the About page
@@ -274,6 +275,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Who Are You Form Section */}
+      <WhoAreYouForm />
 
       {/* Features Section */}
         <section className="py-12 bg-black/50">
