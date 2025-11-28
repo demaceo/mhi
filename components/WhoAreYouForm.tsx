@@ -152,6 +152,7 @@ export default function WhoAreYouForm() {
     if (step > 1) {
       setStep(step - 1);
       setErrors({});
+      setState('idle');
     }
   };
 
@@ -274,7 +275,14 @@ export default function WhoAreYouForm() {
               <span>Step {step} of {TOTAL_STEPS}</span>
               <span>{Math.round(progress)}% complete</span>
             </div>
-            <div className="h-2 bg-brand-100 dark:bg-brand-800 rounded-full overflow-hidden">
+            <div
+              className="h-2 bg-brand-100 dark:bg-brand-800 rounded-full overflow-hidden"
+              role="progressbar"
+              aria-valuenow={step}
+              aria-valuemin={1}
+              aria-valuemax={TOTAL_STEPS}
+              aria-label="Form progress"
+            >
               <motion.div
                 className="h-full bg-gradient-to-r from-mountain-teal to-mountain-emerald"
                 initial={{ width: 0 }}
@@ -324,11 +332,13 @@ export default function WhoAreYouForm() {
                           <p className="text-brand-600 dark:text-brand-400">Select the option that best describes you</p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid md:grid-cols-2 gap-4" role="radiogroup" aria-label="Select your role">
                           {personas.map((persona) => (
                             <motion.button
                               key={persona.id}
                               onClick={() => handlePersonaSelect(persona.id)}
+                              role="radio"
+                              aria-checked={formData.persona === persona.id}
                               className={`relative p-6 rounded-2xl border-2 text-left transition-all duration-300 ${
                                 formData.persona === persona.id
                                   ? 'border-mountain-teal bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10'
@@ -354,7 +364,7 @@ export default function WhoAreYouForm() {
                                   animate={{ scale: 1 }}
                                   className="absolute top-4 right-4 w-6 h-6 bg-mountain-teal rounded-full flex items-center justify-center"
                                 >
-                                  <CheckCircle2 className="w-4 h-4 text-white" />
+                                  <div className="w-3 h-3 bg-white rounded-full" />
                                 </motion.div>
                               )}
                             </motion.button>
@@ -364,41 +374,57 @@ export default function WhoAreYouForm() {
                     )}
 
                     {/* Step 2: Goals */}
-                    {step === 2 && selectedPersona && (
+                    {step === 2 && (
                       <div className="space-y-6">
-                        <div className="text-center mb-8">
-                          <h3 className="text-2xl font-bold text-brand-900 dark:text-brand-100 mb-2">What Are Your Goals?</h3>
-                          <p className="text-brand-600 dark:text-brand-400">Select all that apply to your situation</p>
-                        </div>
+                        {selectedPersona ? (
+                          <>
+                            <div className="text-center mb-8">
+                              <h3 className="text-2xl font-bold text-brand-900 dark:text-brand-100 mb-2">What Are Your Goals?</h3>
+                              <p className="text-brand-600 dark:text-brand-400">Select all that apply to your situation</p>
+                            </div>
 
-                        <div className="grid sm:grid-cols-2 gap-4">
-                          {selectedPersona.goals.map((goal) => (
-                            <motion.button
-                              key={goal}
-                              onClick={() => handleGoalToggle(goal)}
-                              className={`p-4 rounded-xl border-2 text-left transition-all duration-300 ${
-                                formData.goals.includes(goal)
-                                  ? 'border-mountain-teal bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10'
-                                  : 'border-brand-200 dark:border-brand-700 hover:border-mountain-teal/50 bg-white dark:bg-brand-800/50'
-                              }`}
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              <div className="flex items-center gap-3">
-                                <div
-                                  className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
+                            <div className="grid sm:grid-cols-2 gap-4" role="group" aria-label="Select your goals">
+                              {selectedPersona.goals.map((goal) => (
+                                <motion.button
+                                  key={goal}
+                                  onClick={() => handleGoalToggle(goal)}
+                                  role="checkbox"
+                                  aria-checked={formData.goals.includes(goal)}
+                                  className={`p-4 rounded-xl border-2 text-left transition-all duration-300 ${
                                     formData.goals.includes(goal)
-                                      ? 'border-mountain-teal bg-mountain-teal'
-                                      : 'border-brand-300 dark:border-brand-600'
+                                      ? 'border-mountain-teal bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10'
+                                      : 'border-brand-200 dark:border-brand-700 hover:border-mountain-teal/50 bg-white dark:bg-brand-800/50'
                                   }`}
+                                  whileHover={{ scale: 1.02 }}
+                                  whileTap={{ scale: 0.98 }}
                                 >
-                                  {formData.goals.includes(goal) && <CheckCircle2 className="w-4 h-4 text-white" />}
-                                </div>
-                                <span className="font-medium text-brand-900 dark:text-brand-100">{goal}</span>
-                              </div>
-                            </motion.button>
-                          ))}
-                        </div>
+                                  <div className="flex items-center gap-3">
+                                    <div
+                                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
+                                        formData.goals.includes(goal)
+                                          ? 'border-mountain-teal bg-mountain-teal'
+                                          : 'border-brand-300 dark:border-brand-600'
+                                      }`}
+                                    >
+                                      {formData.goals.includes(goal) && <CheckCircle2 className="w-4 h-4 text-white" />}
+                                    </div>
+                                    <span className="font-medium text-brand-900 dark:text-brand-100">{goal}</span>
+                                  </div>
+                                </motion.button>
+                              ))}
+                            </div>
+                          </>
+                        ) : (
+                          <div className="text-center py-8">
+                            <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                            <p className="text-brand-600 dark:text-brand-400 mb-4">
+                              Something went wrong. Please go back and select your role again.
+                            </p>
+                            <Button variant="ghost" onClick={() => setStep(1)}>
+                              Go Back to Step 1
+                            </Button>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -410,11 +436,13 @@ export default function WhoAreYouForm() {
                           <p className="text-brand-600 dark:text-brand-400">Select all that you might need</p>
                         </div>
 
-                        <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-4" role="group" aria-label="Select services of interest">
                           {services.map((service) => (
                             <motion.button
                               key={service.id}
                               onClick={() => handleServiceToggle(service.id)}
+                              role="checkbox"
+                              aria-checked={formData.services.includes(service.id)}
                               className={`p-4 rounded-xl border-2 text-left transition-all duration-300 ${
                                 formData.services.includes(service.id)
                                   ? 'border-mountain-teal bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10'
@@ -452,11 +480,13 @@ export default function WhoAreYouForm() {
                           <p className="text-brand-600 dark:text-brand-400">When are you looking to get started?</p>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-4" role="radiogroup" aria-label="Select your timeline">
                           {timelines.map((timeline) => (
                             <motion.button
                               key={timeline.id}
                               onClick={() => handleTimelineSelect(timeline.id)}
+                              role="radio"
+                              aria-checked={formData.timeline === timeline.id}
                               className={`w-full p-5 rounded-xl border-2 text-left transition-all duration-300 ${
                                 formData.timeline === timeline.id
                                   ? 'border-mountain-teal bg-gradient-to-br from-mountain-teal/10 to-mountain-emerald/10'
@@ -504,18 +534,19 @@ export default function WhoAreYouForm() {
                         <div className="space-y-4 max-w-md mx-auto">
                           {/* Email Field */}
                           <div className="space-y-2">
-                            <label className="flex items-center gap-2 text-sm font-medium text-brand-800 dark:text-brand-200">
+                            <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-brand-800 dark:text-brand-200">
                               <Mail className="w-4 h-4 text-brand-600" />
                               Email Address <span className="text-red-500">*</span>
                             </label>
                             <input
+                              id="email"
                               type="email"
                               value={formData.email}
                               onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                               placeholder="your.email@example.com"
-                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 ${
+                              className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 text-brand-900 dark:text-brand-100 placeholder:text-brand-400 dark:placeholder:text-brand-500 ${
                                 errors['email']
-                                  ? 'border-red-300 bg-red-50'
+                                  ? 'border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-950/30'
                                   : 'border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-800/50 hover:border-brand-300 focus:border-mountain-teal'
                               }`}
                             />
@@ -523,7 +554,7 @@ export default function WhoAreYouForm() {
                               <motion.p
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-sm text-red-600 flex items-center gap-1"
+                                className="text-sm text-red-600 dark:text-red-400 flex items-center gap-1"
                               >
                                 <AlertCircle className="w-4 h-4" />
                                 {errors['email']}
@@ -533,16 +564,17 @@ export default function WhoAreYouForm() {
 
                           {/* Message Field (Optional) */}
                           <div className="space-y-2">
-                            <label className="flex items-center gap-2 text-sm font-medium text-brand-800 dark:text-brand-200">
+                            <label htmlFor="message" className="flex items-center gap-2 text-sm font-medium text-brand-800 dark:text-brand-200">
                               <MessageSquare className="w-4 h-4 text-brand-600" />
                               Additional Details <span className="text-brand-400">(optional)</span>
                             </label>
                             <textarea
+                              id="message"
                               value={formData.message}
                               onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
                               rows={4}
                               placeholder="Tell us more about your project, timeline, or any specific requirements..."
-                              className="w-full px-4 py-3 rounded-xl border-2 border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-800/50 hover:border-brand-300 focus:border-mountain-teal transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 resize-none"
+                              className="w-full px-4 py-3 rounded-xl border-2 border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-800/50 hover:border-brand-300 focus:border-mountain-teal transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 resize-none text-brand-900 dark:text-brand-100 placeholder:text-brand-400 dark:placeholder:text-brand-500"
                             />
                           </div>
                         </div>
@@ -552,10 +584,10 @@ export default function WhoAreYouForm() {
                           <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3 max-w-md mx-auto"
+                            className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-500 rounded-xl p-4 flex items-center gap-3 max-w-md mx-auto"
                           >
-                            <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
-                            <p className="text-sm text-red-800">{errors['general']}</p>
+                            <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
+                            <p className="text-sm text-red-800 dark:text-red-300">{errors['general']}</p>
                           </motion.div>
                         )}
                       </div>
