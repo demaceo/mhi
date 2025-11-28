@@ -129,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* Who Are You Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-b from-brand-50/30 to-transparent" aria-labelledby="target-audience">
+      {/* <section className="py-20 lg:py-32 bg-gradient-to-b from-brand-50/30 to-transparent" aria-labelledby="target-audience">
         <div className="container">
           <motion.div
             className="max-w-6xl mx-auto"
@@ -274,7 +274,7 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Who Are You Form Section */}
       <WhoAreYouForm />
