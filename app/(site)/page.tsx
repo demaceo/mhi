@@ -4,18 +4,13 @@ import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Sparkles,
-  Zap,
   Rocket,
   Target,
-  Users,
-  Brain,
-  Shield,
-  Globe,
   Heart
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import WhoAreYouForm from '@/components/WhoAreYouForm';
+import { WhoAreYouForm } from '@/components/WhoAreYouForm';
 
 const stats = [
   // Todo: place some of these stats in the About page

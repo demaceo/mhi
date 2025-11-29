@@ -2,6 +2,16 @@ import { NextResponse } from 'next/server';
 import { gmailService } from '@/lib/gmail';
 import { z } from 'zod';
 
+// HTML escape function to prevent HTML injection in email templates
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 // Validation schema for the multi-step form
 const formSchema = z.object({
   persona: z.string().min(1, 'Please select who you are'),
@@ -73,11 +83,13 @@ export async function POST(request: Request) {
       );
     }
 
-    // Format the data for the email
-    const personaLabel = personaLabels[persona] || persona;
-    const servicesFormatted = services.map((s) => serviceLabels[s] || s).join(', ');
-    const timelineLabel = timelineLabels[timeline] || timeline;
-    const goalsFormatted = goals.join(', ');
+    // Format the data for the email (escape user input to prevent HTML injection)
+    const personaLabel = escapeHtml(personaLabels[persona] || persona);
+    const servicesFormatted = services.map((s) => escapeHtml(serviceLabels[s] || s)).join(', ');
+    const timelineLabel = escapeHtml(timelineLabels[timeline] || timeline);
+    const goalsFormatted = goals.map((g) => escapeHtml(g)).join(', ');
+    const escapedEmail = escapeHtml(email);
+    const escapedMessage = message ? escapeHtml(message) : '';
 
     // Email content for the business
     const businessEmailContent = `
@@ -105,7 +117,7 @@ export async function POST(request: Request) {
       </tr>
       <tr>
         <td style="padding: 10px 0; font-weight: 600; color: #555; vertical-align: top;">Email:</td>
-        <td style="padding: 10px 0; color: #333;"><a href="mailto:${email}" style="color: #0891b2; text-decoration: none; font-weight: 500;">${email}</a></td>
+        <td style="padding: 10px 0; color: #333;"><a href="mailto:${escapedEmail}" style="color: #0891b2; text-decoration: none; font-weight: 500;">${escapedEmail}</a></td>
       </tr>
       <tr>
         <td style="padding: 10px 0; font-weight: 600; color: #555; vertical-align: top;">Timeline:</td>
@@ -119,7 +131,7 @@ export async function POST(request: Request) {
   <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e9ecef; margin-bottom: 20px;">
     <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">Goals</h3>
     <ul style="margin: 0; padding-left: 20px;">
-      ${goals.map((goal) => `<li style="margin: 8px 0; color: #555;">${goal}</li>`).join('')}
+      ${goals.map((goal) => `<li style="margin: 8px 0; color: #555;">${escapeHtml(goal)}</li>`).join('')}
     </ul>
   </div>
 
@@ -129,19 +141,19 @@ export async function POST(request: Request) {
       ${services
         .map(
           (service) =>
-            `<span style="display: inline-block; background: #f0fdfa; color: #0891b2; padding: 6px 12px; border-radius: 6px; font-size: 14px; border: 1px solid #0891b2;">${serviceLabels[service] || service}</span>`
+            `<span style="display: inline-block; background: #f0fdfa; color: #0891b2; padding: 6px 12px; border-radius: 6px; font-size: 14px; border: 1px solid #0891b2;">${escapeHtml(serviceLabels[service] || service)}</span>`
         )
         .join('')}
     </div>
   </div>
 
   ${
-    message
+    escapedMessage
       ? `
   <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e9ecef; margin-bottom: 20px;">
     <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">Additional Message</h3>
     <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; border-left: 3px solid #0891b2;">
-      <p style="margin: 0; white-space: pre-wrap; line-height: 1.6; color: #555;">${message}</p>
+      <p style="margin: 0; white-space: pre-wrap; line-height: 1.6; color: #555;">${escapedMessage}</p>
     </div>
   </div>
   `
