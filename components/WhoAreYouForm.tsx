@@ -110,7 +110,7 @@ const emailSchema = z.object({
 
 const TOTAL_STEPS = 5;
 
-export default function WhoAreYouForm() {
+export function WhoAreYouForm() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     persona: '',
@@ -336,6 +336,7 @@ export default function WhoAreYouForm() {
                           {personas.map((persona) => (
                             <motion.button
                               key={persona.id}
+                              type="button"
                               onClick={() => handlePersonaSelect(persona.id)}
                               role="radio"
                               aria-checked={formData.persona === persona.id}
@@ -387,6 +388,7 @@ export default function WhoAreYouForm() {
                               {selectedPersona.goals.map((goal) => (
                                 <motion.button
                                   key={goal}
+                                  type="button"
                                   onClick={() => handleGoalToggle(goal)}
                                   role="checkbox"
                                   aria-checked={formData.goals.includes(goal)}
@@ -440,6 +442,7 @@ export default function WhoAreYouForm() {
                           {services.map((service) => (
                             <motion.button
                               key={service.id}
+                              type="button"
                               onClick={() => handleServiceToggle(service.id)}
                               role="checkbox"
                               aria-checked={formData.services.includes(service.id)}
@@ -484,6 +487,7 @@ export default function WhoAreYouForm() {
                           {timelines.map((timeline) => (
                             <motion.button
                               key={timeline.id}
+                              type="button"
                               onClick={() => handleTimelineSelect(timeline.id)}
                               role="radio"
                               aria-checked={formData.timeline === timeline.id}
