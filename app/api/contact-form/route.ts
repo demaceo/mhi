@@ -14,12 +14,16 @@ function escapeHtml(str: string): string {
 
 // Validation schema for the multi-step form
 const formSchema = z.object({
-  persona: z.string().min(1, 'Please select who you are'),
+  persona: z.enum(['entrepreneur', 'startup-founder', 'small-business', 'investor', 'product-manager', 'visionary'], {
+    errorMap: () => ({ message: 'Please select who you are' }),
+  }),
   goals: z.array(z.string()).min(1, 'Please select at least one goal'),
-  services: z.array(z.string()).min(1, 'Please select at least one service'),
-  timeline: z.string().min(1, 'Please select a timeline'),
+  services: z.array(z.enum(['mvp', 'web-app', 'mobile-app', 'ui-ux', 'consulting', 'maintenance'])).min(1, 'Please select at least one service'),
+  timeline: z.enum(['exploring', 'soon', 'urgent'], {
+    errorMap: () => ({ message: 'Please select a timeline' }),
+  }),
   email: z.string().email('Invalid email address'),
-  message: z.string().optional(),
+  message: z.string().max(5000, 'Message must be at most 5000 characters').optional(),
 });
 
 // Mapping for display labels
@@ -54,11 +58,13 @@ export async function POST(request: Request) {
     // Validate the request body
     const validationResult = formSchema.safeParse(body);
     if (!validationResult.success) {
+      // Sanitize error messages to avoid exposing internal details
+      const errorMessages = validationResult.error.errors.map((err) => err.message);
       return NextResponse.json(
         {
           success: false,
           error: 'Invalid form data',
-          details: validationResult.error.errors,
+          details: errorMessages,
         },
         { status: 400 }
       );
@@ -181,9 +187,22 @@ export async function POST(request: Request) {
 </html>
     `.trim();
 
+    // Determine business email recipient
+    const businessEmailRecipient = process.env['BUSINESS_EMAIL'] || process.env['GOOGLE_EMAIL'];
+    if (!businessEmailRecipient) {
+      console.error('No business email configured. Set BUSINESS_EMAIL or GOOGLE_EMAIL environment variable.');
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Email service not properly configured. Please contact the site administrator.',
+        },
+        { status: 500 }
+      );
+    }
+
     // Send email to business
     const businessEmailResult = await gmailService.sendEmail({
-      to: process.env['BUSINESS_EMAIL'] || process.env['GOOGLE_EMAIL'] || 'hello@milehighinterface.com',
+      to: businessEmailRecipient,
       subject: `New Lead: ${personaLabel} - ${timelineLabel}`,
       html: businessEmailContent,
       replyTo: email,
@@ -273,8 +292,8 @@ export async function POST(request: Request) {
       console.warn('Failed to send confirmation email:', confirmationError);
     }
 
-    // Log successful submission
-    console.log(`[contact-form] Lead submitted successfully. Type: ${personaLabel}, Email: ${email}, Timeline: ${timelineLabel}`);
+    // Log successful submission (without sensitive email data)
+    console.log(`[contact-form] Lead submitted successfully. Type: ${personaLabel}, Timeline: ${timelineLabel}`);
 
     return NextResponse.json({
       success: true,

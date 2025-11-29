@@ -545,6 +545,7 @@ export function WhoAreYouForm() {
                             <input
                               id="email"
                               type="email"
+                              autoComplete="email"
                               value={formData.email}
                               onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                               placeholder="your.email@example.com"
