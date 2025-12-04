@@ -1,76 +1,81 @@
-'use client';
-import { motion } from 'framer-motion';
-import { 
-  Target, 
-  Heart, 
-  Users, 
-  Award, 
+"use client";
+import { motion } from "framer-motion";
+import {
+  Target,
+  Heart,
+  Users,
+  Award,
   Lightbulb,
   Shield,
   Zap,
   Globe,
   Code2,
-  Palette
-} from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
+  Palette,
+} from "lucide-react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/Card";
 
 const principles = [
   {
     icon: Shield,
-    title: 'Accessibility by Default',
-    description: 'Every interface we build is designed to be inclusive and usable by everyone, regardless of ability or device.',
-    color: 'from-mountain-teal to-mountain-blue'
+    title: "Accessibility by Default",
+    description:
+      "Every interface we build is designed to be inclusive and usable by everyone, regardless of ability or device.",
+    color: "from-mountain-teal to-mountain-blue",
   },
   {
     icon: Target,
-    title: 'Lean, Measurable Outcomes',
-    description: 'We focus on delivering value quickly and iterating based on real user feedback and data.',
-    color: 'from-mountain-emerald to-mountain-green'
+    title: "Lean, Measurable Outcomes",
+    description:
+      "We focus on delivering value quickly and iterating based on real user feedback and data.",
+    color: "from-mountain-emerald to-mountain-green",
   },
   {
     icon: Heart,
-    title: 'Privacy‑Respecting Analytics',
-    description: 'User privacy is paramount. We implement analytics that respect user consent and data rights.',
-    color: 'from-mountain-cyan to-mountain-teal'
+    title: "Privacy‑Respecting Analytics",
+    description:
+      "User privacy is paramount. We implement analytics that respect user consent and data rights.",
+    color: "from-mountain-cyan to-mountain-teal",
   },
   {
     icon: Zap,
-    title: 'Calm, Expressive Motion',
-    description: 'Thoughtful animations and micro-interactions that enhance usability without overwhelming users.',
-    color: 'from-mountain-green to-mountain-forest'
-  }
+    title: "Calm, Expressive Motion",
+    description:
+      "Thoughtful animations and micro-interactions that enhance usability without overwhelming users.",
+    color: "from-mountain-green to-mountain-forest",
+  },
 ];
 
 const values = [
   {
     icon: Lightbulb,
-    title: 'Innovation',
-    description: 'We stay at the forefront of technology to deliver cutting-edge solutions.'
+    title: "Innovation",
+    description:
+      "We stay at the forefront of technology to deliver cutting-edge solutions.",
   },
   {
     icon: Users,
-    title: 'Collaboration',
-    description: 'Success comes from working closely with our clients as true partners.'
+    title: "Collaboration",
+    description:
+      "Success comes from working closely with our clients as true partners.",
   },
   {
     icon: Award,
-    title: 'Excellence',
-    description: 'We never compromise on quality and always strive to exceed expectations.'
+    title: "Excellence",
+    description:
+      "We never compromise on quality and always strive to exceed expectations.",
   },
   {
     icon: Globe,
-    title: 'Impact',
-    description: 'We choose projects that make a positive difference in the world.'
-  }
-];
-
-const team = [
-  {
-    name: 'Mile High Interface Team',
-    role: 'Design & Engineering',
-    description: 'A collective of designers, developers, and strategists passionate about creating meaningful digital experiences.',
-    image: '/brand/logo.svg'
-  }
+    title: "Impact",
+    description:
+      "We choose projects that make a positive difference in the world.",
+  },
 ];
 
 export default function AboutPage() {
@@ -87,12 +92,18 @@ export default function AboutPage() {
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-relaxed overflow-visible">
               <span className="text-brand-900 dark:text-brand-100">About</span>
-              <span className="block text-gradient" style={{ lineHeight: '1.4' }}>Mile High Interface</span>
+              <span
+                className="block text-gradient"
+                style={{ lineHeight: "1.4" }}
+              >
+                Mile High Interface
+              </span>
             </h1>
-            
+
             <p className="text-base sm:text-lg lg:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              We are an app & website development studio in Colorado, creating digital solutions that help 
-              entrepreneurs, startups, and small businesses bring their ideas to life and grow their ventures.
+              We are an app & website development studio in Colorado, creating
+              digital solutions that help entrepreneurs, startups, and small
+              businesses bring their ideas to life and grow their ventures.
             </p>
           </motion.div>
         </div>
@@ -114,21 +125,22 @@ export default function AboutPage() {
               </h2>
               <div className="prose prose-base sm:prose-lg text-brand-600 dark:text-brand-300 max-w-none dark:prose-invert">
                 <p>
-                  We believe technology should empower entrepreneurs and help businesses thrive, 
-                  creating solutions that drive growth and make meaningful impact. 
-                  Every line of code we write and every pixel we place is guided by the 
-                  principle that great interfaces can make complex problems accessible 
-                  and beautiful.
+                  We believe technology should empower entrepreneurs and help
+                  businesses thrive, creating solutions that drive growth and
+                  make meaningful impact. Every line of code we write and every
+                  pixel we place is guided by the principle that great
+                  interfaces can make complex problems accessible and beautiful.
                 </p>
                 <p>
-                  From civic engagement platforms that connect citizens with their 
-                  representatives to data visualizations that reveal insights hidden 
-                  in complexity, we choose projects that align with our values and 
-                  have the potential to create positive change.
+                  From civic engagement platforms that connect citizens with
+                  their representatives to data visualizations that reveal
+                  insights hidden in complexity, we choose projects that align
+                  with our values and have the potential to create positive
+                  change.
                 </p>
               </div>
             </motion.div>
-            
+
             <motion.div
               className="relative order-1 lg:order-2"
               initial={{ opacity: 0, x: 20 }}
@@ -141,20 +153,36 @@ export default function AboutPage() {
                 <div className="relative p-6 sm:p-8 space-y-6">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">50+</div>
-                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Projects Delivered</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">
+                        50+
+                      </div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">
+                        Projects Delivered
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">5+</div>
-                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Years Experience</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">
+                        5+
+                      </div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">
+                        Years Experience
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">99%</div>
-                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Client Satisfaction</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">
+                        99%
+                      </div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">
+                        Client Satisfaction
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">24/7</div>
-                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">Support Available</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">
+                        24/7
+                      </div>
+                      <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400 font-medium">
+                        Support Available
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -178,7 +206,8 @@ export default function AboutPage() {
               Our Principles
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              The core beliefs that guide every decision we make and every project we undertake.
+              The core beliefs that guide every decision we make and every
+              project we undertake.
             </p>
           </motion.div>
 
@@ -193,7 +222,9 @@ export default function AboutPage() {
               >
                 <Card className="h-full group hover:scale-105 transition-transform duration-300">
                   <CardHeader className="pb-4">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${principle.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${principle.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <principle.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <CardTitle className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">
@@ -226,7 +257,8 @@ export default function AboutPage() {
               Our Values
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              The fundamental values that shape our culture and drive our commitment to excellence.
+              The fundamental values that shape our culture and drive our
+              commitment to excellence.
             </p>
           </motion.div>
 
@@ -274,7 +306,8 @@ export default function AboutPage() {
               Technology Stack
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              We use cutting-edge tools and frameworks to build scalable, performant applications.
+              We use cutting-edge tools and frameworks to build scalable,
+              performant applications.
             </p>
           </motion.div>
 
@@ -292,25 +325,49 @@ export default function AboutPage() {
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3 mb-3 sm:mb-4">
                       <Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-mountain-teal" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">Frontend</h3>
+                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">
+                        Frontend
+                      </h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'D3.js'].map(tech => (
-                        <span key={tech} className="px-2 sm:px-3 py-1 bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-medium">
+                      {[
+                        "React",
+                        "Next.js",
+                        "TypeScript",
+                        "Tailwind CSS",
+                        "Framer Motion",
+                        "D3.js",
+                      ].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 sm:px-3 py-1 bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-medium"
+                        >
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-3 mb-3 sm:mb-4">
                       <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-mountain-emerald" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">Design & Tools</h3>
+                      <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100">
+                        Design & Tools
+                      </h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {['Figma', 'Adobe Creative Suite', 'Principle', 'Lottie', 'WebGL', 'Three.js'].map(tech => (
-                        <span key={tech} className="px-2 sm:px-3 py-1 bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-medium">
+                      {[
+                        "Figma",
+                        "Adobe Creative Suite",
+                        "Principle",
+                        "Lottie",
+                        "WebGL",
+                        "Three.js",
+                      ].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 sm:px-3 py-1 bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-full text-xs sm:text-sm font-medium"
+                        >
                           {tech}
                         </span>
                       ))}

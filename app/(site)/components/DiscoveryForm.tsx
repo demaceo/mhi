@@ -29,16 +29,14 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 
 // Form data schema
-const formSchema = z.object({
-  userTypes: z.array(z.string()).min(1, "Please select at least one option"),
-  services: z.array(z.string()).min(1, "Please select at least one service"),
-  timeline: z.string().optional(),
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Please enter a valid email"),
-  message: z.string().optional(),
-});
-
-type FormData = z.infer<typeof formSchema>;
+type FormData = {
+  userTypes: string[];
+  services: string[];
+  timeline?: string;
+  name: string;
+  email: string;
+  message?: string;
+};
 
 const userTypeOptions = [
   {
@@ -52,7 +50,7 @@ const userTypeOptions = [
     icon: Rocket,
     value: "startup-founder",
     title: "Startup Founder",
-    description: "I'm building an innovative product",
+    description: "I&apos;m building an innovative product",
     color: "from-mountain-cyan to-mountain-teal",
   },
   {
@@ -66,7 +64,7 @@ const userTypeOptions = [
     icon: Shield,
     value: "investor",
     title: "Investor",
-    description: "I'm backing companies that need tech",
+    description: "I&apos;m backing companies that need tech",
     color: "from-mountain-green to-mountain-forest",
   },
   {
@@ -562,7 +560,7 @@ export default function DiscoveryForm() {
                       >
                         <div className="text-center space-y-2">
                           <h3 className="text-2xl font-bold text-brand-900">
-                            What's your timeline?
+                            What&apos;s your timeline?
                           </h3>
                           <p className="text-brand-600">
                             Optional - helps us plan better
@@ -632,7 +630,7 @@ export default function DiscoveryForm() {
                             How can we reach you?
                           </h3>
                           <p className="text-brand-600">
-                            We'll send you a personalized proposal
+                            We&apos;ll send you a personalized proposal
                           </p>
                         </div>
 

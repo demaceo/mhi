@@ -1,18 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Sparkles,
-  Zap,
-  Rocket,
-  Target,
-  Users,
-  Brain,
-  Shield,
-  Globe,
-  Heart,
-} from "lucide-react";
+import { ArrowRight, Sparkles, Rocket, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import DiscoveryForm from "./components/DiscoveryForm";
@@ -91,9 +80,9 @@ export default function HomePage() {
 
               <p className="text-xl md:text-2xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto leading-relaxed">
                 Transform your mobile app or website vision into reality.
-                Whether you're starting from scratch or enhancing an existing
-                product, we deliver fast, user-friendly solutions that drive
-                results.
+                Whether you&apos;re starting from scratch or enhancing an
+                existing product, we deliver fast, user-friendly solutions that
+                drive results.
               </p>
             </motion.div>
 
