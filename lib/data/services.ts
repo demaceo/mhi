@@ -50,6 +50,7 @@ export interface ProcessStep {
     timeline: string;
     deliverables: string[];
     icon: LucideIcon;
+    color: string;
 }
 
 export interface ServiceTestimonial {
@@ -149,7 +150,7 @@ export const services: Service[] = [
             'Performance benchmarks and optimization guide',
         ],
         color: 'from-mountain-cyan to-mountain-teal',
-        caseStudySlug: 'data-viz-platform',
+        caseStudySlug: 'pinpoint-civic-engagement',
         metrics: {
             label: 'Data Points Handled',
             value: '10M+',
@@ -395,6 +396,7 @@ export const processSteps: ProcessStep[] = [
             'Detailed project timeline and milestones',
         ],
         icon: FileCode,
+        color: 'from-mountain-teal to-mountain-blue',
     },
     {
         step: '02',
@@ -416,6 +418,7 @@ export const processSteps: ProcessStep[] = [
             'Approved final designs and specifications',
         ],
         icon: Palette,
+        color: 'from-mountain-cyan to-mountain-teal',
     },
     {
         step: '03',
@@ -437,6 +440,7 @@ export const processSteps: ProcessStep[] = [
             'Technical documentation',
         ],
         icon: Code2,
+        color: 'from-mountain-green to-mountain-emerald',
     },
     {
         step: '04',
@@ -458,6 +462,7 @@ export const processSteps: ProcessStep[] = [
             'Support and maintenance plan',
         ],
         icon: Zap,
+        color: 'from-mountain-emerald to-mountain-forest',
     },
 ];
 
@@ -497,52 +502,4 @@ export const serviceTestimonials: ServiceTestimonial[] = [
     },
 ];
 
-// Service Comparison Data
-export interface ServiceComparison {
-    question: string;
-    options: {
-        answer: string;
-        recommendedServices: string[];
-    }[];
-}
 
-export const serviceComparisonQuiz: ServiceComparison[] = [
-    {
-        question: 'What is your primary goal?',
-        options: [
-            {
-                answer: 'Build a new product from scratch',
-                recommendedServices: ['mvp-development', 'ui-engineering'],
-            },
-            {
-                answer: 'Improve an existing application',
-                recommendedServices: ['ui-engineering', 'code-migration'],
-            },
-            {
-                answer: 'Establish online presence',
-                recommendedServices: ['business-websites'],
-            },
-            {
-                answer: 'Visualize complex data',
-                recommendedServices: ['data-visualization'],
-            },
-        ],
-    },
-    {
-        question: 'What is your timeline?',
-        options: [
-            {
-                answer: 'Launch in under 2 months',
-                recommendedServices: ['mvp-development', 'business-websites'],
-            },
-            {
-                answer: '3-6 months for quality build',
-                recommendedServices: ['ui-engineering', 'data-visualization'],
-            },
-            {
-                answer: 'Ongoing partnership',
-                recommendedServices: ['technical-consulting', 'design-systems'],
-            },
-        ],
-    },
-];

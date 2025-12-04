@@ -1,7 +1,7 @@
-'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
   ArrowRight,
   CheckCircle2,
   Sparkles,
@@ -11,16 +11,22 @@ import {
   TrendingUp,
   Users,
   Quote,
-} from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
-import { 
-  services, 
-  additionalServices, 
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/Card";
+import {
+  services,
+  additionalServices,
   processSteps,
   serviceTestimonials,
-} from '@/lib/data/services';
+} from "@/lib/data/services";
 
 export default function ServicesPage() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
@@ -38,17 +44,22 @@ export default function ServicesPage() {
           >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-3 sm:px-4 py-2 border border-mountain-teal/20">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-mountain-teal" />
-              <span className="text-xs sm:text-sm font-medium text-brand-700 dark:text-brand-300">Full-Service Development</span>
+              <span className="text-xs sm:text-sm font-medium text-brand-700 dark:text-brand-300">
+                Full-Service Development
+              </span>
             </div>
-            
+
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="text-brand-900 dark:text-brand-100">Services That</span>
+              <span className="text-brand-900 dark:text-brand-100">
+                Services That
+              </span>
               <span className="block text-gradient">Drive Results</span>
             </h1>
-            
+
             <p className="text-base sm:text-lg lg:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              From concept to deployment, we offer comprehensive solutions that transform ideas into 
-              exceptional digital experiences your users will love.
+              From concept to deployment, we offer comprehensive solutions that
+              transform ideas into exceptional digital experiences your users
+              will love.
             </p>
           </motion.div>
         </div>
@@ -68,7 +79,8 @@ export default function ServicesPage() {
               Core Services
             </h2>
             <p className="text-lg sm:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto px-4 sm:px-0">
-              Comprehensive development solutions tailored to your business needs, delivered with precision and expertise.
+              Comprehensive development solutions tailored to your business
+              needs, delivered with precision and expertise.
             </p>
           </motion.div>
 
@@ -85,7 +97,9 @@ export default function ServicesPage() {
                   <div className="p-6 sm:p-8">
                     <CardHeader className="pb-4 sm:pb-6 px-0">
                       <div className="flex items-start justify-between mb-4 sm:mb-6">
-                        <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <div
+                          className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                        >
                           <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                         </div>
                         {service.metrics && (
@@ -106,7 +120,7 @@ export default function ServicesPage() {
                         {service.description}
                       </CardDescription>
                     </CardHeader>
-                    
+
                     <CardContent className="px-0 space-y-6">
                       {/* Features */}
                       <div className="space-y-3">
@@ -121,10 +135,15 @@ export default function ServicesPage() {
                               initial={{ opacity: 0, x: -10 }}
                               whileInView={{ opacity: 1, x: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.3, delay: (index * 0.1) + (featureIndex * 0.05) }}
+                              transition={{
+                                duration: 0.3,
+                                delay: index * 0.1 + featureIndex * 0.05,
+                              }}
                             >
                               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-mountain-emerald flex-shrink-0 mt-0.5" />
-                              <span className="text-sm sm:text-base text-brand-700 dark:text-brand-300">{feature}</span>
+                              <span className="text-sm sm:text-base text-brand-700 dark:text-brand-300">
+                                {feature}
+                              </span>
                             </motion.div>
                           ))}
                         </div>
@@ -154,7 +173,10 @@ export default function ServicesPage() {
                         </h4>
                         <ul className="space-y-2 text-sm text-brand-600 dark:text-brand-400">
                           {service.useCases.slice(0, 2).map((useCase) => (
-                            <li key={useCase} className="flex items-start gap-2">
+                            <li
+                              key={useCase}
+                              className="flex items-start gap-2"
+                            >
                               <span className="text-mountain-teal mt-1">•</span>
                               <span>{useCase}</span>
                             </li>
@@ -163,9 +185,31 @@ export default function ServicesPage() {
                       </div>
 
                       {/* CTA */}
-                      <div className="pt-4">
-                        <Button variant="outline" size="sm" className="w-full group/btn">
-                          <Link href="/contact" className="flex items-center justify-center gap-2 w-full">
+                      <div className="pt-4 space-y-2">
+                        {service.caseStudySlug && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="w-full group/case"
+                          >
+                            <Link
+                              href={`/work/${service.caseStudySlug}`}
+                              className="flex items-center justify-center gap-2 w-full"
+                            >
+                              View Case Study
+                              <ExternalLink className="w-3 h-3 group-hover/case:translate-x-0.5 group-hover/case:-translate-y-0.5 transition-transform" />
+                            </Link>
+                          </Button>
+                        )}
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full group/btn"
+                        >
+                          <Link
+                            href="/contact"
+                            className="flex items-center justify-center gap-2 w-full"
+                          >
                             Learn More
                             <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                           </Link>
@@ -185,10 +229,14 @@ export default function ServicesPage() {
         <div className="container px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Users, value: '50+', label: 'Happy Clients' },
-              { icon: TrendingUp, value: '100+', label: 'Projects Delivered' },
-              { icon: CheckCircle2, value: '95%', label: 'Client Satisfaction' },
-              { icon: Clock, value: '98%', label: 'On-Time Delivery' },
+              { icon: Users, value: "50+", label: "Happy Clients" },
+              { icon: TrendingUp, value: "100+", label: "Projects Delivered" },
+              {
+                icon: CheckCircle2,
+                value: "95%",
+                label: "Client Satisfaction",
+              },
+              { icon: Clock, value: "98%", label: "On-Time Delivery" },
             ].map((metric, index) => (
               <motion.div
                 key={metric.label}
@@ -199,7 +247,9 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <metric.icon className="w-8 h-8 mx-auto mb-3 opacity-90" />
-                <div className="text-3xl sm:text-4xl font-bold mb-1">{metric.value}</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-1">
+                  {metric.value}
+                </div>
                 <div className="text-sm opacity-90">{metric.label}</div>
               </motion.div>
             ))}
@@ -221,7 +271,8 @@ export default function ServicesPage() {
               Additional Services
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              Specialized services to enhance, secure, and optimize your digital products.
+              Specialized services to enhance, secure, and optimize your digital
+              products.
             </p>
           </motion.div>
 
@@ -234,57 +285,84 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card 
-                  className="h-full text-center group hover:scale-105 transition-all duration-300 cursor-pointer border-2 hover:border-mountain-teal/50"
-                  onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={expandedService === service.id}
+                  aria-label={`${service.title}. Click to ${expandedService === service.id ? "collapse" : "expand"} details`}
+                  onKeyDown={(e: React.KeyboardEvent) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setExpandedService(
+                        expandedService === service.id ? null : service.id
+                      );
+                    }
+                  }}
+                  onClick={() =>
+                    setExpandedService(
+                      expandedService === service.id ? null : service.id
+                    )
+                  }
+                  className="h-full"
                 >
-                  <CardHeader className="pb-3 sm:pb-4">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                      <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                    </div>
-                    <CardTitle className="text-base sm:text-lg font-semibold text-brand-900 dark:text-brand-100">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0 space-y-3">
-                    <CardDescription className="text-xs sm:text-sm leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                    
-                    <AnimatePresence>
-                      {expandedService === service.id && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="space-y-3 pt-3 border-t border-brand-200 dark:border-brand-700"
-                        >
-                          <div className="text-left space-y-2">
-                            {service.details.map((detail, idx) => (
-                              <div key={idx} className="flex items-start gap-2 text-xs text-brand-600 dark:text-brand-400">
-                                <CheckCircle2 className="w-3 h-3 text-mountain-emerald flex-shrink-0 mt-0.5" />
-                                <span>{detail}</span>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="flex items-center justify-between text-xs pt-2">
-                            <span className="text-brand-500 dark:text-brand-400">Timeline:</span>
-                            <span className="font-semibold text-mountain-teal">{service.typicalTimeline}</span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                    
-                    <div className="pt-2">
-                      <ChevronDown 
-                        className={`w-4 h-4 mx-auto text-mountain-teal transition-transform duration-300 ${
-                          expandedService === service.id ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+                  <Card className="h-full text-center group hover:scale-105 transition-all duration-300 cursor-pointer border-2 hover:border-mountain-teal/50">
+                    <CardHeader className="pb-3 sm:pb-4">
+                      <div
+                        className={`w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg`}
+                      >
+                        <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                      </div>
+                      <CardTitle className="text-base sm:text-lg font-semibold text-brand-900 dark:text-brand-100">
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-3">
+                      <CardDescription className="text-xs sm:text-sm leading-relaxed">
+                        {service.description}
+                      </CardDescription>
+
+                      <AnimatePresence>
+                        {expandedService === service.id && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="space-y-3 pt-3 border-t border-brand-200 dark:border-brand-700"
+                          >
+                            <div className="text-left space-y-2">
+                              {service.details.map((detail, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-2 text-xs text-brand-600 dark:text-brand-400"
+                                >
+                                  <CheckCircle2 className="w-3 h-3 text-mountain-emerald flex-shrink-0 mt-0.5" />
+                                  <span>{detail}</span>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="flex items-center justify-between text-xs pt-2">
+                              <span className="text-brand-500 dark:text-brand-400">
+                                Timeline:
+                              </span>
+                              <span className="font-semibold text-mountain-teal">
+                                {service.typicalTimeline}
+                              </span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      <div className="pt-2">
+                        <ChevronDown
+                          className={`w-4 h-4 mx-auto text-mountain-teal transition-transform duration-300 ${
+                            expandedService === service.id ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -305,7 +383,8 @@ export default function ServicesPage() {
               Client Success Stories
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              Hear from clients who have transformed their businesses with our services.
+              Hear from clients who have transformed their businesses with our
+              services.
             </p>
           </motion.div>
 
@@ -359,7 +438,8 @@ export default function ServicesPage() {
               Our Process
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              A proven methodology that ensures successful project delivery every time.
+              A proven methodology that ensures successful project delivery
+              every time.
             </p>
           </motion.div>
 
@@ -379,16 +459,13 @@ export default function ServicesPage() {
                       <div className="w-14 h-14 rounded-full bg-gradient-to-br from-mountain-teal to-mountain-emerald flex items-center justify-center text-white font-bold text-lg shadow-lg">
                         {step.step}
                       </div>
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${
-                        index === 0 ? 'from-mountain-teal to-mountain-blue' :
-                        index === 1 ? 'from-mountain-cyan to-mountain-teal' :
-                        index === 2 ? 'from-mountain-green to-mountain-emerald' :
-                        'from-mountain-emerald to-mountain-forest'
-                      } flex items-center justify-center`}>
+                      <div
+                        className={`w-10 h-10 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center`}
+                      >
                         <step.icon className="w-5 h-5 text-white" />
                       </div>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-lg sm:text-xl font-semibold text-brand-900 dark:text-brand-100 mb-2">
                         {step.title}
@@ -403,15 +480,20 @@ export default function ServicesPage() {
                         <Clock className="w-4 h-4 text-mountain-teal" />
                         <span className="font-semibold">{step.timeline}</span>
                       </div>
-                      
+
                       <div className="space-y-1.5">
                         <p className="text-xs font-semibold text-brand-700 dark:text-brand-300 uppercase tracking-wide">
                           Key Activities
                         </p>
                         <ul className="space-y-1">
                           {step.substeps.slice(0, 3).map((substep, idx) => (
-                            <li key={idx} className="text-xs text-brand-600 dark:text-brand-400 flex items-start gap-2">
-                              <span className="text-mountain-teal mt-0.5">•</span>
+                            <li
+                              key={idx}
+                              className="text-xs text-brand-600 dark:text-brand-400 flex items-start gap-2"
+                            >
+                              <span className="text-mountain-teal mt-0.5">
+                                •
+                              </span>
                               <span>{substep}</span>
                             </li>
                           ))}
@@ -420,7 +502,7 @@ export default function ServicesPage() {
                     </div>
                   </CardContent>
                 </Card>
-                
+
                 {index < processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 left-full w-8 h-0.5 bg-gradient-to-r from-mountain-teal to-mountain-teal/20 transform -translate-y-1/2 translate-x-2" />
                 )}
@@ -447,17 +529,25 @@ export default function ServicesPage() {
                   Ready to Get Started?
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl opacity-90 max-w-2xl mx-auto">
-                  Let&apos;s discuss your project and explore how we can bring your vision to life 
-                  with exceptional design and engineering.
+                  Let&apos;s discuss your project and explore how we can bring
+                  your vision to life with exceptional design and engineering.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                  <Button variant="gradient" size="lg" className="w-full sm:w-auto">
+                  <Button
+                    variant="gradient"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
                     <Link href="/contact" className="flex items-center gap-2">
                       Start Your Project
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
-                  <Button variant="ghost" size="lg" className="text-white hover:bg-white/10 w-full sm:w-auto border border-white/20">
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    className="text-white hover:bg-white/10 w-full sm:w-auto border border-white/20"
+                  >
                     <Link href="/work" className="flex items-center gap-2">
                       View Our Work
                       <ExternalLink className="w-4 h-4" />
