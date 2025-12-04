@@ -1,98 +1,32 @@
-'use client';
-import { motion } from 'framer-motion';
-import { 
-  Code2, 
-  BarChart3, 
-  Globe, 
-  Zap, 
-  Palette, 
-  Database, 
-  Shield, 
-  Smartphone,
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
   ArrowRight,
   CheckCircle2,
-  Sparkles
-} from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
-
-const services = [
-  {
-    icon: Code2,
-    title: 'Product & UI Engineering',
-    description: 'Full-stack development with React, Next.js, TypeScript, and modern tooling.',
-    features: ['Component Libraries', 'Performance Optimization', 'Accessibility Standards', 'Testing & CI/CD'],
-    color: 'from-mountain-teal to-mountain-blue'
-  },
-  {
-    icon: BarChart3,
-    title: 'Data Visualization',
-    description: 'Interactive dashboards and story-driven visualizations that make data compelling.',
-    features: ['D3.js Implementations', 'Interactive Charts', 'Real-time Dashboards', 'Custom Visualizations'],
-    color: 'from-mountain-cyan to-mountain-teal'
-  },
-  {
-    icon: Globe,
-    title: 'Business Website Development',
-    description: 'Professional websites that establish credibility and drive customer engagement for your business.',
-    features: ['Responsive Design', 'SEO Optimization', 'Content Management', 'Analytics Integration'],
-    color: 'from-mountain-emerald to-mountain-green'
-  },
-  {
-    icon: Zap,
-    title: 'MVP Development & Validation',
-    description: 'Rapid development of minimum viable products to test your business ideas and validate market demand.',
-    features: ['Quick Turnaround', 'User Testing', 'Market Validation', 'Scalable Architecture'],
-    color: 'from-mountain-green to-mountain-forest'
-  }
-];
-
-const additionalServices = [
-  {
-    icon: Palette,
-    title: 'Design Systems',
-    description: 'Scalable design systems that ensure consistency across your product ecosystem.',
-  },
-  {
-    icon: Database,
-    title: 'API Development',
-    description: 'Robust, well-documented APIs that power seamless integrations.',
-  },
-  {
-    icon: Shield,
-    title: 'Security Audits',
-    description: 'Comprehensive security reviews to protect your users and data.',
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile-First Design',
-    description: 'Responsive interfaces that work beautifully on every device.',
-  }
-];
-
-const process = [
-  {
-    step: '01',
-    title: 'Discovery & Strategy',
-    description: 'We dive deep into your goals, users, and technical requirements to create a solid foundation.',
-  },
-  {
-    step: '02',
-    title: 'Design & Prototyping',
-    description: 'Interactive prototypes and user testing ensure we\'re building the right solution.',
-  },
-  {
-    step: '03',
-    title: 'Development & Testing',
-    description: 'Agile development with continuous testing and quality assurance throughout.',
-  },
-  {
-    step: '04',
-    title: 'Launch & Support',
-    description: 'Smooth deployment with ongoing support and optimization for long-term success.',
-  }
-];
+  Sparkles,
+  ExternalLink,
+  ChevronDown,
+  Clock,
+  TrendingUp,
+  Users,
+  Quote,
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/Card";
+import {
+  services,
+  additionalServices,
+  processSteps,
+  serviceTestimonials,
+} from "@/lib/data/services";
 
 export default function ServicesPage() {
   return (
@@ -108,17 +42,22 @@ export default function ServicesPage() {
           >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-mountain-teal/10 to-mountain-emerald/10 rounded-full px-3 sm:px-4 py-2 border border-mountain-teal/20">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-mountain-teal" />
-              <span className="text-xs sm:text-sm font-medium text-brand-700 dark:text-brand-300">Full-Service Development</span>
+              <span className="text-xs sm:text-sm font-medium text-brand-700 dark:text-brand-300">
+                Full-Service Development
+              </span>
             </div>
-            
+
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="text-brand-900 dark:text-brand-100">Services That</span>
+              <span className="text-brand-900 dark:text-brand-100">
+                Services That
+              </span>
               <span className="block text-gradient">Drive Results</span>
             </h1>
-            
+
             <p className="text-base sm:text-lg lg:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              From concept to deployment, we offer comprehensive solutions that transform ideas into 
-              exceptional digital experiences your users will love.
+              From concept to deployment, we offer comprehensive solutions that
+              transform ideas into exceptional digital experiences your users
+              will love.
             </p>
           </motion.div>
         </div>
@@ -134,11 +73,12 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-900 dark:text-brand-100">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-900 dark:text-brand-100">
               Development Process
             </h2>
             <p className="text-lg sm:text-xl text-brand-600 dark:text-brand-300 max-w-3xl mx-auto px-4 sm:px-0">
-              Our proven development methodology ensures your project is delivered on time, within budget, and exceeds expectations.
+              Our proven development methodology ensures your project is
+              delivered on time, within budget, and exceeds expectations.
             </p>
           </motion.div>
 
@@ -154,7 +94,9 @@ export default function ServicesPage() {
                 <Card className="h-full group hover:scale-105 transition-all duration-300 border-0 shadow-lg">
                   <div className="p-6 sm:p-8">
                     <CardHeader className="pb-4 sm:pb-6 px-0">
-                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
                       <CardTitle className="text-xl sm:text-2xl font-bold text-brand-900 dark:text-brand-100 mb-3 text-left">
@@ -164,7 +106,7 @@ export default function ServicesPage() {
                         {service.description}
                       </CardDescription>
                     </CardHeader>
-                    
+
                     <CardContent className="px-0">
                       <div className="space-y-3">
                         {service.features.map((feature, featureIndex) => (
@@ -174,10 +116,15 @@ export default function ServicesPage() {
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: (index * 0.1) + (featureIndex * 0.05) }}
+                            transition={{
+                              duration: 0.3,
+                              delay: index * 0.1 + featureIndex * 0.05,
+                            }}
                           >
                             <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-mountain-emerald flex-shrink-0" />
-                            <span className="text-sm sm:text-base text-brand-700 dark:text-brand-300 font-medium">{feature}</span>
+                            <span className="text-sm sm:text-base text-brand-700 dark:text-brand-300 font-medium">
+                              {feature}
+                            </span>
                           </motion.div>
                         ))}
                       </div>
@@ -204,7 +151,8 @@ export default function ServicesPage() {
               Additional Services
             </h2>
             <p className="text-base sm:text-lg text-brand-600 dark:text-brand-300 max-w-2xl mx-auto px-4 sm:px-0">
-              Specialized services to enhance and optimize your digital products.
+              Specialized services to enhance and optimize your digital
+              products.
             </p>
           </motion.div>
 
@@ -252,7 +200,8 @@ export default function ServicesPage() {
               Our Process
             </h2>
             <p className="text-base sm:text-lg text-brand-600 max-w-2xl mx-auto px-4 sm:px-0">
-              A proven methodology that ensures successful project delivery every time.
+              A proven methodology that ensures successful project delivery
+              every time.
             </p>
           </motion.div>
 
@@ -277,7 +226,7 @@ export default function ServicesPage() {
                     {step.description}
                   </p>
                 </div>
-                
+
                 {index < process.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 left-full w-8 h-0.5 bg-gradient-to-r from-mountain-teal/50 to-mountain-teal/20 transform -translate-y-0.5 translate-x-2" />
                 )}
@@ -304,11 +253,15 @@ export default function ServicesPage() {
                   Ready to Get Started?
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl opacity-90 max-w-2xl mx-auto">
-                  Let's discuss your project and explore how we can bring your vision to life 
-                  with exceptional design and engineering.
+                  Let's discuss your project and explore how we can bring your
+                  vision to life with exceptional design and engineering.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                  <Button variant="gradient" size="lg" className="w-full sm:w-auto">
+                  <Button
+                    variant="gradient"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
                     <Link href="/contact" className="flex items-center gap-2">
                       Start Your Project
                       <ArrowRight className="w-5 h-5" />

@@ -8,7 +8,11 @@ import { z } from 'zod';
 const contactSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   email: z.string().email('Invalid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  message: z.string().optional(),
+  // Discovery form fields
+  userTypes: z.array(z.string()).optional(),
+  services: z.array(z.string()).optional(),
+  timeline: z.string().optional(),
 });
 
 export async function POST(request: Request) {
@@ -19,24 +23,24 @@ export async function POST(request: Request) {
     const validationResult = contactSchema.safeParse(body);
     if (!validationResult.success) {
       return NextResponse.json(
-        { 
+        {
           success: false,
-          error: 'Invalid form data', 
-          details: validationResult.error.errors 
+          error: 'Invalid form data',
+          details: validationResult.error.errors
         },
         { status: 400 }
       );
     }
 
-    const { name, email, message } = validationResult.data;
+    const { name, email, message, userTypes, services, timeline } = validationResult.data;
 
     // Check if Gmail credentials are configured
     if (!process.env['GOOGLE_CLIENT_ID'] || !process.env['GOOGLE_CLIENT_SECRET'] || !process.env['GOOGLE_REFRESH_TOKEN'] || !process.env['GOOGLE_EMAIL']) {
       console.error('Gmail OAuth credentials are not properly configured');
       return NextResponse.json(
-        { 
+        {
           success: false,
-          error: 'Email service not configured' 
+          error: 'Email service not configured'
         },
         { status: 500 }
       );
@@ -71,12 +75,39 @@ export async function POST(request: Request) {
     </table>
   </div>
   
+  ${userTypes && userTypes.length > 0 ? `
   <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e9ecef; margin-top: 20px;">
-    <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">Message</h3>
+    <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">User Type${userTypes.length > 1 ? 's' : ''}</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      ${userTypes.map(type => `<span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 6px 12px; border-radius: 6px; font-size: 14px; display: inline-block;">${type.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>`).join('')}
+    </div>
+  </div>
+  ` : ''}
+  
+  ${services && services.length > 0 ? `
+  <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e9ecef; margin-top: 20px;">
+    <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">Services Needed</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      ${services.map(service => `<span style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 6px 12px; border-radius: 6px; font-size: 14px; display: inline-block;">${service.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>`).join('')}
+    </div>
+  </div>
+  ` : ''}
+  
+  ${timeline ? `
+  <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e9ecef; margin-top: 20px;">
+    <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">Timeline</h3>
+    <p style="margin: 0; color: #333; font-weight: 500;">${timeline.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+  </div>
+  ` : ''}
+  
+  ${message ? `
+  <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e9ecef; margin-top: 20px;">
+    <h3 style="margin-top: 0; color: #333; border-bottom: 2px solid #f1f3f4; padding-bottom: 10px;">Additional Message</h3>
     <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; border-left: 3px solid #667eea;">
       <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
     </div>
   </div>
+  ` : ''}
   
   <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center;">
     <p style="margin: 0; color: #666; font-size: 14px;">
@@ -100,9 +131,12 @@ export async function POST(request: Request) {
     `.trim();
 
     // Send email to business
+    const isDiscoveryForm = userTypes && userTypes.length > 0;
     const businessEmailResult = await gmailService.sendEmail({
       to: process.env['BUSINESS_EMAIL'] || process.env['GOOGLE_EMAIL'] || 'hello@milehighinterface.com',
-      subject: `New Contact Form Submission from ${name}`,
+      subject: isDiscoveryForm
+        ? `New Discovery Form Submission from ${name}`
+        : `New Contact Form Submission from ${name}`,
       html: businessEmailContent,
       replyTo: email,
     });
@@ -116,10 +150,10 @@ export async function POST(request: Request) {
         email: !!process.env['GOOGLE_EMAIL']
       });
       return NextResponse.json(
-        { 
+        {
           success: false,
-          error: 'Failed to send email', 
-          details: businessEmailResult.error 
+          error: 'Failed to send email',
+          details: businessEmailResult.error
         },
         { status: 500 }
       );
@@ -147,10 +181,12 @@ export async function POST(request: Request) {
       Thank you for reaching out to Mile High Interface! We've received your message and will get back to you within 1-2 business days.
     </p>
     
+    ${message ? `
     <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; margin: 20px 0;">
       <h3 style="margin-top: 0; color: #333;">Your Message:</h3>
       <p style="margin: 0; white-space: pre-wrap; color: #555;">${message}</p>
     </div>
+    ` : ''}
     
     <p style="color: #555;">
       In the meantime, feel free to explore our work and services on our website. If you have any urgent questions, 
@@ -205,7 +241,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { 
+      {
         success: false,
         error: 'Internal server error',
         details: error instanceof Error ? error.message : 'Unknown error'
