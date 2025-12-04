@@ -220,12 +220,12 @@ export default function DiscoveryForm() {
     switch (step) {
       case 1:
         if (!formData.userTypes || formData.userTypes.length === 0) {
-          newErrors.userTypes = "Please select at least one option";
+          newErrors["userTypes"] = "Please select at least one option";
         }
         break;
       case 2:
         if (!formData.services || formData.services.length === 0) {
-          newErrors.services = "Please select at least one service";
+          newErrors["services"] = "Please select at least one service";
         }
         break;
       case 3:
@@ -233,12 +233,12 @@ export default function DiscoveryForm() {
         break;
       case 4:
         if (!formData.name || formData.name.trim().length === 0) {
-          newErrors.name = "Name is required";
+          newErrors["name"] = "Name is required";
         }
         if (!formData.email || formData.email.trim().length === 0) {
-          newErrors.email = "Email is required";
+          newErrors["email"] = "Email is required";
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-          newErrors.email = "Please enter a valid email";
+          newErrors["email"] = "Please enter a valid email";
         }
         break;
     }
@@ -463,14 +463,14 @@ export default function DiscoveryForm() {
                           })}
                         </div>
 
-                        {errors.userTypes && (
+                        {errors["userTypes"] && (
                           <motion.p
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-sm text-red-600 flex items-center justify-center gap-2"
                           >
                             <AlertCircle className="w-4 h-4" />
-                            {errors.userTypes}
+                            {errors["userTypes"]}
                           </motion.p>
                         )}
                       </motion.div>
@@ -537,14 +537,14 @@ export default function DiscoveryForm() {
                           })}
                         </div>
 
-                        {errors.services && (
+                        {errors["services"] && (
                           <motion.p
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-sm text-red-600 flex items-center justify-center gap-2"
                           >
                             <AlertCircle className="w-4 h-4" />
-                            {errors.services}
+                            {errors["services"]}
                           </motion.p>
                         )}
                       </motion.div>
@@ -655,19 +655,19 @@ export default function DiscoveryForm() {
                               }}
                               placeholder="Your full name"
                               className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 ${
-                                errors.name
+                                errors["name"]
                                   ? "border-red-300 bg-red-50"
                                   : "border-brand-200 bg-white hover:border-brand-300 focus:border-mountain-teal"
                               }`}
                             />
-                            {errors.name && (
+                            {errors["name"] && (
                               <motion.p
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="text-sm text-red-600 flex items-center gap-1"
                               >
                                 <AlertCircle className="w-4 h-4" />
-                                {errors.name}
+                                {errors["name"]}
                               </motion.p>
                             )}
                           </div>
@@ -690,19 +690,19 @@ export default function DiscoveryForm() {
                               }}
                               placeholder="your.email@example.com"
                               className={`w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mountain-teal/20 ${
-                                errors.email
+                                errors["email"]
                                   ? "border-red-300 bg-red-50"
                                   : "border-brand-200 bg-white hover:border-brand-300 focus:border-mountain-teal"
                               }`}
                             />
-                            {errors.email && (
+                            {errors["email"] && (
                               <motion.p
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="text-sm text-red-600 flex items-center gap-1"
                               >
                                 <AlertCircle className="w-4 h-4" />
-                                {errors.email}
+                                {errors["email"]}
                               </motion.p>
                             )}
                           </div>
